@@ -5,5 +5,5 @@ Your system should store student results (grades in modules each semester) and s
 
 Classes needed:
 - Student Results
-- QCA calculations
+- QCA calculations: PostGrad and Undergrad
 - 
