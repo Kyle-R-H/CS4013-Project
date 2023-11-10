@@ -7,3 +7,6 @@ Classes needed:
 - Student Results
 - QCA calculations: PostGrad and Undergrad
 - Student information: 
+- Course (create course object)
+  • Methods: duration(years), credits(Possibly own class),type(possible own class)(Bachelors of Science, arts, etc; Masters of blah; Doctors of whatever), 
+- 
