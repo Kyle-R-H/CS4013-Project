@@ -3,10 +3,10 @@ package application;
 import java.io.IOException;
 import javafx.fxml.FXML;
 
-public class AdminController {
+public class SecondaryController {
 
     @FXML
     private void switchToPrimary() throws IOException {
-        application.setRoot("Main");
+        App.setRoot("primary");
     }
 }
