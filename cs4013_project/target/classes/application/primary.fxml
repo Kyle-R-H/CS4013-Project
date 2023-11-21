@@ -8,8 +8,8 @@
 <VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PrimaryController">
    <children>
       <Label text="Primary View" />
-      <Button fx:id="primaryButton" text="Switch to Secondary View" onAction="#switchToSecondary"/>
-      <Button fx:id="tertiaryButton" text="Switch to Tertiary View" onAction="#switchToTertiary"/>
+      <Button fx:id="primaryButton" text="Switch to Student View" onAction="#switchToSecondary"/>
+      <Button fx:id="tertiaryButton" text="Switch to Admin View" onAction="#switchToTertiary"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
