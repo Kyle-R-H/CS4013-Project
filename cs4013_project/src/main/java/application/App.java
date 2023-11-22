@@ -6,6 +6,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
@@ -32,6 +33,11 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
+        try {
+            AccountLogin login = new AccountLogin();
+        } catch (FileNotFoundException | IOException e) {
+            e.printStackTrace();
+        }
         launch();
     }
 
