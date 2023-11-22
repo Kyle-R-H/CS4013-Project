@@ -25,6 +25,7 @@ public class TertiaryController {
         if (validateAdminCredentials(enteredEmail, enteredPassword)) {
             System.out.println("Admin Login Successful!");
             // Add code to switch to admin view or perform other actions upon successful admin login
+            switchtoQuinary();
         } else {
             System.out.println("Admin Login failed. Invalid credentials.");
             // Add code to display an error message or perform other actions upon failed admin login
@@ -33,6 +34,15 @@ public class TertiaryController {
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
+    }
+
+    @FXML
+    private void switchtoQuinary() {
+        try {
+            App.setRoot("quinary");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     private boolean validateAdminCredentials(String email, String password) {
