@@ -32,11 +32,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        try {
-            AccountLogin login = new AccountLogin();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         launch();
     }
 
