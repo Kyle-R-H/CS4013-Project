@@ -25,6 +25,7 @@ public class SecondaryController {
         if (validateCredentials(enteredStudentNumber, enteredPassword)) {
             System.out.println("Login successful!");
             // Add code to switch to the primary view or perform other actions upon successful login
+            switchtoQuarternary();
         } else {
             System.out.println("Login failed. Invalid credentials.");
             // Add code to display an error message or perform other actions upon failed login
@@ -52,7 +53,15 @@ public class SecondaryController {
         
     }
     @FXML
-        private void switchToPrimary() throws IOException {
-            App.setRoot("primary");
+    private void switchToPrimary() throws IOException {
+        App.setRoot("primary");
+    }
+    @FXML
+    private void switchtoQuarternary() {
+        try {
+            App.setRoot("quaternary");
+        } catch (IOException e) {
+            e.printStackTrace();
         }
+    }
 }
