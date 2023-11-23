@@ -1,4 +1,4 @@
-package application;
+package cs4013_project;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,13 +7,16 @@ import java.util.Scanner;
 public class QCACalculator {
     public static void main(String[] args) {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Enter grades (A1, A2, B1, B2, B3, C1, C2, C3, D1, D2, F, NG) for 5 subjects:");
+            System.out.print("Enter the number of modules: ");
+            int moduleCount = scanner.nextInt();
+            scanner.nextLine(); // Consume the newline character
+            
+            System.out.println("Enter grades (A1, A2, B1, B2, B3, C1, C2, C3, D1, D2, F, NG) for " + moduleCount + " modules:");
             double qca = 0;
-            int subjectCount = 5;
-            Map<Integer, String> deficientSubjects = new HashMap<>();
+            Map<Integer, String> deficientModules = new HashMap<>();
 
-            for (int i = 1; i <= subjectCount; i++) {
-                System.out.print("Enter grade for Subject " + i + ": ");
+            for (int i = 1; i <= moduleCount; i++) {
+                System.out.print("Enter grade for Module " + i + ": ");
                 String grade = scanner.next().toUpperCase();
 
                 double gradeValue = getGradeValue(grade);
@@ -24,21 +27,23 @@ public class QCACalculator {
                 } else {
                     qca += gradeValue;
                     if (grade.equals("F") || grade.equals("NG") || grade.equals("D1") || grade.equals("D2")) {
-                        deficientSubjects.put(i, grade);
+                        deficientModules.put(i, grade);
                     }
                 }
             }
-            
-            qca = Math.round(qca * 100.0) / 100.0;
-            System.out.println("Your QCA is: " + qca/5);
 
-            if (qca >= 2) {
+            qca = Math.round(qca * 100.0) / (moduleCount * 100.0);
+            System.out.println("Your QCA is: " + qca);
+
+            boolean passed = (qca >= 2.0);
+
+            if (passed) {
                 System.out.println("Congratulations! You passed.");
-                if (!deficientSubjects.isEmpty()) {
-                    System.out.println("You have deficient grades in the following subjects for annual repeats:");
-                    for (Map.Entry<Integer, String> entry : deficientSubjects.entrySet()) {
-                        System.out.println("Subject " + entry.getKey() + ": " + entry.getValue());
-                    }
+                if (!deficientModules.isEmpty()) {
+                    System.out.println("You have deficient grades in the following modules for annual repeats:");
+                    deficientModules.forEach((key, value) ->
+                            System.out.println("Module " + key + ": " + value)
+                    );
                 }
             } else {
                 System.out.println("Sorry, you did not pass.");
