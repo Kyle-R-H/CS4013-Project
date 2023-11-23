@@ -1,4 +1,4 @@
-package cs4013_project;
+// package cs4013_project;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -46,7 +46,9 @@ public class QCACalculator {
                     );
                 }
             } else {
-                System.out.println("Sorry, you did not pass.");
+                System.out.println("QCA insufficient: \n» Take annual repeats (maximum of four modules excluding I grades). Annual repeats are capped  \r\n" + //
+                        "» Repeat a full semester or take modules on a link-in basis  \r\n" +
+                        "» Repeat full year");
             }
         }
     }
