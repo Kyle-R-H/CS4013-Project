@@ -1,3 +1,5 @@
+// Student Main page: Transcript
+
 package application;
 
 import java.io.IOException;
