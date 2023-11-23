@@ -10,8 +10,8 @@ import java.util.ArrayList;
  */
 public class AccountLogin {
     // ~~ "Import" csv into arraylists ~~
-    final String STUDENT_FILE = "C:\\Users\\russe\\Desktop\\4013 Projects Temp\\Student.csv";
-    final String ADMIN_FILE = "C:\\Users\\russe\\Desktop\\4013 Projects Temp\\Administrator.csv";
+    final String STUDENT_FILE = "";
+    final String ADMIN_FILE = "";
 
     private String userLine;
     private ArrayList<String[]> allStudents = new ArrayList<>(); // ArrayList of all student logins
