@@ -1,4 +1,5 @@
 package cs4013_project;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
@@ -31,8 +32,8 @@ public class QCACalculator {
                 }
             }
 
-            qca = Math.round(qca * 100.0) / 100.0;
-            System.out.println("Your QCA is: " + qca / moduleCount);
+            qca = Math.round(qca * 100.0) / (moduleCount * 100.0);
+            System.out.println("Your QCA is: " + qca);
 
             boolean passed = (qca >= 2.0);
 
