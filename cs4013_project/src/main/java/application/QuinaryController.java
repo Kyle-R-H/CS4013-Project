@@ -80,7 +80,7 @@ public class QuinaryController {
         // Get the selected course from the ComboBox
         String selectedCourse = courseComboBox.getValue();
 
-        System.out.println("Selected Course: " + selectedCourse); // Remove this line ----------------------------------------------------------------
+        System.out.println("Selected Course: " + selectedCourse); // Status chack line ----------------------------------------------------------------
 
 
         if (selectedCourse != null && !selectedCourse.isEmpty()) {
@@ -96,7 +96,7 @@ public class QuinaryController {
                         
                         // Check if the course code matches the selected course
                         if (courseCode.equals(selectedCourse)) {
-                            System.out.println("Student ID: " + studentID); // Add this line
+                            System.out.println("Student ID: " + studentID);  // Status chack line ----------------------------------------------------------------
 
                             // Check if the extracted student ID is an 8-digit number
                             if (studentID.matches("\\d+")) {
@@ -113,8 +113,7 @@ public class QuinaryController {
                         while (matcher.find()) {
                             String studentID = matcher.group(1).trim();
 
-                            System.out.println("Student ID: " + studentID); // Add this line
-
+                            System.out.println("Student ID: " + studentID);  // Status chack line ----------------------------------------------------------------
                             // Check if the extracted student ID is an 8-digit number
                             if (studentID.matches("\\d+")) {
                                 // Add the extracted student ID to the list
