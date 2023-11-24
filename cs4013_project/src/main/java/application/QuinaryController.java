@@ -70,37 +70,52 @@ public class QuinaryController {
     }
 
     @FXML
-private void updateStudentsForCourse() {
-    // Clear existing items in studentComboBox and semesterComboBox
-    uniqueStudents.clear();
-    uniqueSemesters.clear();
+    private void updateStudentsForCourse() {
+        // Clear existing items in studentComboBox and semesterComboBox
+        uniqueStudents.clear();
+        uniqueSemesters.clear();
 
-    // Get the selected course from the ComboBox
-    String selectedCourse = courseComboBox.getValue();
+        // Get the selected course from the ComboBox
+        String selectedCourse = courseComboBox.getValue();
 
-    if (selectedCourse != null && !selectedCourse.isEmpty()) {
-        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
-            String line;
-            //boolean courseFound = false;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
+        if (selectedCourse != null && !selectedCourse.isEmpty()) {
+            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
+                String line;                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
 
-                if (parts.length >= 2 && parts[0].trim().equals(selectedCourse)) {
-                    // Course code matches the selected course
-                    String studentID = parts[1].trim();
+                    if (parts.length >= 2 && parts[0].trim().equals(selectedCourse)) {
+                        // Course code matches the selected course
+                        String studentID = parts[1].trim();
+                        String maxSemesters = "1"; // Default to 1 if not specified
 
-                    // Check if the extracted student ID is an 8-digit number
-                    if (studentID.matches("\\d+")) {
-                        // Add the extracted student ID to the list
-                        uniqueStudents.add(studentID);
+                        // Check if the extracted student ID is an 8-digit number
+                        if (studentID.matches("\\d+")) {
+                            // Add the extracted student ID to the list (if not already added)
+                            if (!uniqueStudents.contains(studentID)) {
+                                uniqueStudents.add(studentID);
+                            }
+
+                            // Check if there's a number after the student ID for max semesters
+                            if (parts.length >= 3 && parts[2].matches("\\d+")) {
+                                maxSemesters = parts[2].trim();
+                            }
+
+                            // Populate the semesters ComboBox (if not already populated)
+                            if (uniqueSemesters.isEmpty()) {
+                                for (int i = 1; i <= Integer.parseInt(maxSemesters); i++) {
+                                    uniqueSemesters.add(String.valueOf(i));
+                                }
+                            }
+                        }
                     }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
     }
-}
+
+
 
 
 
