@@ -18,8 +18,6 @@ import java.nio.file.Paths;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 public class QuinaryController {
 
@@ -72,66 +70,38 @@ public class QuinaryController {
     }
 
     @FXML
-    private void updateStudentsForCourse() {
-        // Clear existing items in studentComboBox and semesterComboBox
-        uniqueStudents.clear();
-        uniqueSemesters.clear();
+private void updateStudentsForCourse() {
+    // Clear existing items in studentComboBox and semesterComboBox
+    uniqueStudents.clear();
+    uniqueSemesters.clear();
 
-        // Get the selected course from the ComboBox
-        String selectedCourse = courseComboBox.getValue();
+    // Get the selected course from the ComboBox
+    String selectedCourse = courseComboBox.getValue();
 
-        System.out.println("Selected Course: " + selectedCourse); // Status chack line ----------------------------------------------------------------
+    if (selectedCourse != null && !selectedCourse.isEmpty()) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
+            String line;
+            //boolean courseFound = false;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
 
+                if (parts.length >= 2 && parts[0].trim().equals(selectedCourse)) {
+                    // Course code matches the selected course
+                    String studentID = parts[1].trim();
 
-        if (selectedCourse != null && !selectedCourse.isEmpty()) {
-            // Load students based on the selected course
-            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
-                String line;
-                boolean courseFound = false;
-                while ((line = reader.readLine()) != null) {
-                    String[] parts = line.split(",");
-                    if (parts.length == 2) {
-                        String courseCode = parts[0].trim();
-                        String studentID = parts[1].trim();
-                        
-                        // Check if the course code matches the selected course
-                        if (courseCode.equals(selectedCourse)) {
-                            System.out.println("Student ID: " + studentID);  // Status chack line ----------------------------------------------------------------
-
-                            // Check if the extracted student ID is an 8-digit number
-                            if (studentID.matches("\\d+")) {
-                                // Add the extracted student ID to the list
-                                uniqueStudents.add(studentID);
-                            }
-                        }
-                    }
-
-                    if (courseFound && !line.isEmpty()) {
-                        // Use a regular expression to match the course code and capture the student ID
-                        String regex = "^" + selectedCourse + "(\\S+)";
-                        Matcher matcher = Pattern.compile(regex).matcher(line);
-                        while (matcher.find()) {
-                            String studentID = matcher.group(1).trim();
-
-                            System.out.println("Student ID: " + studentID);  // Status chack line ----------------------------------------------------------------
-                            // Check if the extracted student ID is an 8-digit number
-                            if (studentID.matches("\\d+")) {
-                                // Add the extracted student ID to the list
-                                uniqueStudents.add(studentID);
-                            }
-                        }
-
-                    }
-
-                    if (line.equals(selectedCourse)) {
-                        courseFound = true;
+                    // Check if the extracted student ID is an 8-digit number
+                    if (studentID.matches("\\d+")) {
+                        // Add the extracted student ID to the list
+                        uniqueStudents.add(studentID);
                     }
                 }
-            } catch (IOException e) {
-                e.printStackTrace();
             }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
+}
+
 
 
 
@@ -146,7 +116,7 @@ public class QuinaryController {
                 line = line.trim();
                 String[] parts = line.split(",");
     
-                if (parts.length == 2 && parts[0].length() == 5 && parts[1].matches("\\d+")) {
+                if (parts.length >= 1 && parts[0].length() == 5) {
                     // Add the course code to the set
                     coursesSet.add(parts[0]);
                 }
