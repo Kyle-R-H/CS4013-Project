@@ -19,7 +19,7 @@
    <VBox alignment="CENTER" spacing="10.0">
       <Label text="Admin Page" />
       <HBox alignment="CENTER" spacing="10.0">
-         <ComboBox fx:id="courseComboBox" promptText="Select Course" />
+         <ComboBox fx:id="courseComboBox" promptText="Select Course" onAction="#updateStudentsForCourse" />
          <ComboBox fx:id="studentComboBox" promptText="Select Student" />
          <ComboBox fx:id="semesterComboBox" promptText="Select Semester" />
       </HBox>

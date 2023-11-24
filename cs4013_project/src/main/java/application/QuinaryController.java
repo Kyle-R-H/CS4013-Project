@@ -12,11 +12,14 @@ import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class QuinaryController {
 
@@ -51,9 +54,10 @@ public class QuinaryController {
     private ObservableList<String> uniqueStudents;
     private ObservableList<String> uniqueSemesters;
 
+
     @FXML
     private void initialize() {
-        // Initialize observable lists for unique courses, students, and semesters
+        // Initialize observable lists
         uniqueCourses = FXCollections.observableArrayList();
         uniqueStudents = FXCollections.observableArrayList();
         uniqueSemesters = FXCollections.observableArrayList();
@@ -65,72 +69,94 @@ public class QuinaryController {
         courseComboBox.setItems(uniqueCourses);
         studentComboBox.setItems(uniqueStudents);
         semesterComboBox.setItems(uniqueSemesters);
-
-        // Add listener to courseComboBox to update studentComboBox based on selected course
-        courseComboBox.valueProperty().addListener((observable, oldValue, newValue) -> updateStudentsForCourse(newValue));
     }
 
-    private void updateStudentsForCourse(String selectedCourse) {
-        // Clear existing items in studentComboBox
+    @FXML
+    private void updateStudentsForCourse() {
+        // Clear existing items in studentComboBox and semesterComboBox
         uniqueStudents.clear();
-
-        // Load students based on the selected course
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Courses.csv")))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 3 && parts[0].trim().equals(selectedCourse)) {
-                    uniqueStudents.add(parts[1].trim());
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        // Update semesterComboBox based on the selected course
-        updateSemestersForCourse(selectedCourse);
-    }
-
-    private void updateSemestersForCourse(String selectedCourse) {
-        // Clear existing items in semesterComboBox
         uniqueSemesters.clear();
 
-        // Load semesters based on the maximum number of semesters specified in the CSV file
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Courses.csv")))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] parts = line.split(",");
-                if (parts.length >= 3 && parts[0].trim().equals(selectedCourse)) {
-                    int maxSemesters = Integer.parseInt(parts[2].trim());
-                    // Add semesters from 1 to the maximum
-                    uniqueSemesters.addAll(IntStream.rangeClosed(1, maxSemesters).boxed().map(Object::toString).collect(Collectors.toList()));
-                    break; // Stop processing once we find the matching course
+        // Get the selected course from the ComboBox
+        String selectedCourse = courseComboBox.getValue();
+
+        System.out.println("Selected Course: " + selectedCourse); // Remove this line ----------------------------------------------------------------
+
+
+        if (selectedCourse != null && !selectedCourse.isEmpty()) {
+            // Load students based on the selected course
+            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
+                String line;
+                boolean courseFound = false;
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
+                    if (parts.length == 2) {
+                        String courseCode = parts[0].trim();
+                        String studentID = parts[1].trim();
+                        
+                        // Check if the course code matches the selected course
+                        if (courseCode.equals(selectedCourse)) {
+                            System.out.println("Student ID: " + studentID); // Add this line
+
+                            // Check if the extracted student ID is an 8-digit number
+                            if (studentID.matches("\\d+")) {
+                                // Add the extracted student ID to the list
+                                uniqueStudents.add(studentID);
+                            }
+                        }
+                    }
+
+                    if (courseFound && !line.isEmpty()) {
+                        // Use a regular expression to match the course code and capture the student ID
+                        String regex = "^" + selectedCourse + "(\\S+)";
+                        Matcher matcher = Pattern.compile(regex).matcher(line);
+                        while (matcher.find()) {
+                            String studentID = matcher.group(1).trim();
+
+                            System.out.println("Student ID: " + studentID); // Add this line
+
+                            // Check if the extracted student ID is an 8-digit number
+                            if (studentID.matches("\\d+")) {
+                                // Add the extracted student ID to the list
+                                uniqueStudents.add(studentID);
+                            }
+                        }
+
+                    }
+
+                    if (line.equals(selectedCourse)) {
+                        courseFound = true;
+                    }
                 }
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-        } catch (IOException | NumberFormatException e) {
-            e.printStackTrace();
         }
     }
+
+
 
     private void loadDataFromGradesCSV() {
         Set<String> coursesSet = new HashSet<>();
-        Set<String> studentsSet = new HashSet<>();
-
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Courses.csv")))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
+    
+        try {
+            Path filePath = Paths.get("src/main/resources/application/Courses.csv");
+            List<String> lines = Files.readAllLines(filePath);
+    
+            for (String line : lines) {
+                line = line.trim();
                 String[] parts = line.split(",");
-                if (parts.length >= 3) {
-                    coursesSet.add(parts[0].trim());
-                    studentsSet.add(parts[1].trim());
+    
+                if (parts.length == 2 && parts[0].length() == 5 && parts[1].matches("\\d+")) {
+                    // Add the course code to the set
+                    coursesSet.add(parts[0]);
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+    
         uniqueCourses.addAll(coursesSet);
-        uniqueStudents.addAll(studentsSet);
     }
 
     @FXML
