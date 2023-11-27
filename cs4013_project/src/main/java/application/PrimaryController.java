@@ -19,7 +19,7 @@ public class PrimaryController {
     }
 
     @FXML
-    private void switchToQuaerternary() throws IOException {
+    private void switchToQuarternary() throws IOException {
         App.setRoot("quarterternary");
     }
 
