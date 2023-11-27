@@ -15,4 +15,9 @@ public class QuaternaryController {
 
     @FXML
     private TextArea transcriptTextArea;
+    
+
+    // private void QuaternaryController(){
+    //     transcriptTextArea.setStyle(-fx);
+    // }
 }
