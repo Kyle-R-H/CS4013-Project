@@ -4,6 +4,7 @@ package application;
 
 import java.io.IOException;
 import javafx.fxml.FXML;
+import javafx.scene.control.TextArea;
 
 public class QuaternaryController {
 
@@ -11,4 +12,7 @@ public class QuaternaryController {
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }
+
+    @FXML
+    private TextArea transcriptTextArea;
 }
