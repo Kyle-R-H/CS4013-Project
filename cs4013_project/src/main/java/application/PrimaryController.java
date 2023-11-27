@@ -17,4 +17,14 @@ public class PrimaryController {
     private void switchToTertiary() throws IOException {
         App.setRoot("tertiary");
     }
+
+    @FXML
+    private void switchToQuarternary() throws IOException {
+        App.setRoot("quarternary");
+    }
+
+    @FXML
+    private void switchToQuinary() throws IOException {
+        App.setRoot("quinary");
+    }
 }
