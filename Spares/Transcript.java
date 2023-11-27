@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Transcript {
 //prefix = if null == NA
-    public void transcriptHeader(int id, String prefix, String forename, String surname,String phoneNumber, String course, String route){
+    public void transcriptHeader(int id, String prefix, String forename, String surname, String course, String route){
         System.out.println( 
             theLine()+ "\n" +
             String.format("|%48s %s %48s|", "","University of Limerick", "") +"\r\n" +
@@ -12,8 +12,6 @@ public class Transcript {
             String.format("|%119s %s|", "", "")+ "\r\n" +
             theLine() +"\r\n" +
             String.format("|%-11s %-"+ Math.max(6, String.valueOf(prefix).length()) +"s %-"+ Math.max(20, String.valueOf(forename).length()) +"s %-" + Math.max(20, String.valueOf(surname).length()) + "s %59s|" ,"Name", prefix, forename, surname, "") + "\r\n" +
-            String.format("|%-11s %-" + Math.max(106, String.valueOf(phoneNumber).length()) +"s|", "Phone", phoneNumber)+ "\r\n" +
-            String.format("|%119s %s|", "", "")+ "\r\n" +
             String.format("|%-11s %-" + Math.max(108, String.valueOf(course).length()) +"s|", "Course", course)+ "\r\n" +
             String.format("|%-11s %-"+ Math.max(108, String.valueOf(route).length()) +"s|","Route", route)
 
@@ -119,7 +117,7 @@ public class Transcript {
         credits.add(6);
 
         Transcript transcript = new Transcript();
-        transcript.transcriptHeader(studentID, "Mr", "Ky3987weuhle", "Helwiwfuhiflstrom","087-123-1234", "Computer Science", "CS");
+        transcript.transcriptHeader(studentID, "Mr", "Ky3987weuhle", "Helwiwfuhiflstrom", "Computer Science", "CS");
         transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
         transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
     }
