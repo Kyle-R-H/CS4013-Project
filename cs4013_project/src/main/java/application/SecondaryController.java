@@ -62,7 +62,7 @@ public class SecondaryController {
     @FXML
     private void switchtoQuarternary() {
         try {
-            App.setRoot("quarternary");
+            App.setRoot("quaternary");
         } catch (IOException e) {
             e.printStackTrace();
         }
