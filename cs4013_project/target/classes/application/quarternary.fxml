@@ -13,7 +13,7 @@
          <Button text="Home" onAction="#switchToPrimary" />
       </HBox>
       <Label text="Transcript" />
-      <TextArea VBox.vgrow="ALWAYS" disable="true" style="-fx-background-color: transparent;"/>
+      <TextArea fx:id="transcriptTextArea" VBox.vgrow="ALWAYS" style=" -fx-control-inner-background: transparent; -fx-text-fill: black; -fx-font-weight: normal;"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

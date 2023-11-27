@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class Transcript {
 //prefix = if null == NA
-    public void transcriptHeader(int id, String prefix, String forename, String surname, String course, String route){
+    public void transcriptHeader(int id, String prefix, String forename, String surname, String course, String courseCode, String route){
         System.out.println( 
             theLine()+ "\n" +
             String.format("|%48s %s %48s|", "","University of Limerick", "") +"\r\n" +
@@ -11,9 +11,10 @@ public class Transcript {
             String.format("|%s %-40s %s %-30s %-"+ Math.max(8, String.valueOf(id).length()) +"s %-9s|", LocalDate.now(), "", "Student Transcript", "", id, "")   + "\r\n" +
             String.format("|%119s %s|", "", "")+ "\r\n" +
             theLine() +"\r\n" +
-            String.format("|%-11s %-"+ Math.max(6, String.valueOf(prefix).length()) +"s %-"+ Math.max(20, String.valueOf(forename).length()) +"s %-" + Math.max(20, String.valueOf(surname).length()) + "s %59s|" ,"Name", prefix, forename, surname, "") + "\r\n" +
-            String.format("|%-11s %-" + Math.max(108, String.valueOf(course).length()) +"s|", "Course", course)+ "\r\n" +
-            String.format("|%-11s %-"+ Math.max(108, String.valueOf(route).length()) +"s|","Route", route)
+            String.format("|%-12s %-"+ Math.max(6, String.valueOf(prefix).length()) +"s %-"+ Math.max(20, String.valueOf(forename).length()) +"s %-" + Math.max(20, String.valueOf(surname).length()) + "s %58s|" ,"Name", prefix, forename, surname, "") + "\r\n" +
+            String.format("|%-12s %-" + Math.max(107, String.valueOf(course).length()) +"s|", "Course", course)+ "\r\n" +
+            String.format("|%-12s %-" + Math.max(107, String.valueOf(courseCode).length()) +"s|", "Course Code", courseCode)+ "\r\n" +
+            String.format("|%-12s %-"+ Math.max(107, String.valueOf(route).length()) +"s|","Route", route)
 
         );
     }
@@ -117,7 +118,7 @@ public class Transcript {
         credits.add(6);
 
         Transcript transcript = new Transcript();
-        transcript.transcriptHeader(studentID, "Mr", "Ky3987weuhle", "Helwiwfuhiflstrom", "Computer Science", "CS");
+        transcript.transcriptHeader(studentID, "Mr", "Ky3987weuhle", "Helwiwfuhiflstrom", "Computer Science","LM121", "CS");
         transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
         transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
     }

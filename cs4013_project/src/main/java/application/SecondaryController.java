@@ -35,6 +35,7 @@ public class SecondaryController {
         }
     }
 
+    public static String studentNumber;
     private boolean validateCredentials(String studentNumber, String password) {
         // Reads data from CSV and validate credentials
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Student.csv")))) {
@@ -42,6 +43,7 @@ public class SecondaryController {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
                 if (parts.length == 2 && parts[0].equals(studentNumber) && parts[1].equals(password)) {
+                    SecondaryController.studentNumber = studentNumber;
                     return true; // Credentials are valid
                 }
             }
