@@ -3,7 +3,9 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+// import java.io.FileReader;
+import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -42,27 +44,39 @@ public class QuaternaryController {
 
     @FXML
     private String transcriptWithCSVInfo(){
-        final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
-        final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
-        final String MODULES_FILE = "src\\main\\resources\\application\\Modules.csv";
+        // final String STUDENT_FILE = "Student.csv";
+        // final String COURSE_FILE = "Courses.csv";
+        // final String MODULES_FILE = "Modules.csv";
 
-        try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
-            BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE));
-            BufferedReader moduleReader = new BufferedReader(new FileReader(MODULES_FILE));) {
-
-            String studentLine = studentReader.readLine();
-            String courseLine = courseReader.readLine();
-            String moduleLine = moduleReader.readLine();
-
-            while (studentLine != null && courseLine != null && moduleLine != null) { //while both files arent empty
-                String[] studentParts = studentLine.split(","); 
+        try(BufferedReader studentReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Student.csv")));
+            BufferedReader courseReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Courses.csv")));
+            BufferedReader moduleReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Modules.csv")))) {
+            String studentLine;
+            String courseLine;
+            String moduleLine;
+            while (((studentLine = studentReader.readLine()) != null) && ((courseLine = courseReader.readLine()) != null) && ((moduleLine = moduleReader.readLine()) != null)) { //while both files arent empty
+                System.out.println("Student Line: " + studentLine);
+                System.out.println("Course Line: " + courseLine);
+                System.out.println("Module Line: " + moduleLine);
+            
+                String[] studentParts = studentLine.split(",");
                 String[] courseParts = courseLine.split(",");
                 String[] moduleParts = moduleLine.split(",");
+            
+                System.out.println("Student Parts: " + Arrays.toString(studentParts));
+                System.out.println("Course Parts: " + Arrays.toString(courseParts));
+                System.out.println("Module Parts: " + Arrays.toString(moduleParts));
+            
+                String studentId = null;
+                if (studentParts.length >= 1 && studentParts[0].trim().equals(SecondaryController.studentNumber.trim())) {
+                    studentId = studentParts[0].trim();
+                }
+                String courseStudentId = null;
+                if (courseParts.length >= 2 && courseParts[1].trim().equals(SecondaryController.studentNumber.trim())) {
+                    courseStudentId = courseParts[1].trim();
+                }
 
-                String studentId = "22342044";//studentParts.length >= 1 && studentParts[0].trim().equals(SecondaryController.studentNumber) ? studentParts[0].trim() : "-1";                                            
-                String courseStudentId = "22342044";//courseParts.length >= 2 && studentParts[0].trim().equals(SecondaryController.studentNumber) ? courseParts[1].trim() : "-1";                                            
-
-                if (studentId.equals(SecondaryController.studentNumber) && studentId.equals(courseStudentId) && SecondaryController.studentNumber != null) {
+                if (studentId != null && courseStudentId != null && studentId.equals(SecondaryController.studentNumber) && studentId.equals(courseStudentId) && SecondaryController.studentNumber != null) {
                     //get info
                     int year = 0;
                     String courseName = moduleParts[0];

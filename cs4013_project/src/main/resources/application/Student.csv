@@ -1,7 +1,6 @@
-studentId,password,prefix,forname,surname,courseCode
 a,a,,,,
-22342044,Meh,The,Aoife,,
-22343261,dasMe,Ft.,K.,Hellstrom,
+22342044,Meh,The,Aoife,Bracken,LM051
+22343261,dasMe,Ft.,K.,Hellstrom,LM051
 12345678,password,Mrs,,,
 01234567,wordsOfThePass,,,,
 87654321,Student0,,,,
