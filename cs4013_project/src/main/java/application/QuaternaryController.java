@@ -64,9 +64,10 @@ public class QuaternaryController {
                     String courseCode = "";
                     String courseRoute = "";
 
-                    double semesterQCA = -1.0;
-                    double totalQca = -1.0;
-                    String courseYear = "1990/91";
+                    double semesterQCA = -1.0; //! Get from Calculator
+                    double totalQca = -1.0; //! Average of all QCAs
+                    String semesterYear = "1990/91";
+
                     int year = 0;
                     int totalSemesters = 0;
                     if (totalSemesters == 1 || totalSemesters == 2) {
@@ -91,7 +92,7 @@ public class QuaternaryController {
                                         "Course Parts: " + Arrays.toString(courseParts);
                     String transcript = transcriptHeader(SecondaryController.studentNumber, "N/A", forename, surname, courseName, courseCode, courseRoute) + "\n" +
                                         
-                                        getFormattedTranscript(semesterQCA, totalQca, courseYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
+                                        getFormattedTranscript(semesterQCA, totalQca, semesterYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
                     
                     
                     
@@ -136,7 +137,7 @@ public class QuaternaryController {
      * 
      * @param semesterQCA
      * @param totalQCA
-     * @param courseYear
+     * @param semesterYear
      * @param year
      * @param totalSemesters
      * @param moduleIds
@@ -146,10 +147,10 @@ public class QuaternaryController {
      * @param credits
      * @return
      */
-    public String getFormattedTranscript(double semesterQCA, double totalQCA, String courseYear, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
+    public String getFormattedTranscript(double semesterQCA, double totalQCA, String semesterYear, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
         StringBuilder transcriptBuilder = new StringBuilder();
         transcriptBuilder.append(theLine()).append("\r\n")
-                        .append(semesterDetails(courseYear, year, totalSemesters)).append("\r\n")
+                        .append(semesterDetails(semesterYear, year, totalSemesters)).append("\r\n")
                         .append(blankLines()).append("\r\n")
                         .append(semesterHeader_n_QCA(semesterQCA, totalQCA)).append("\r\n")
                         .append(blankLines());
@@ -174,16 +175,16 @@ public class QuaternaryController {
 
     /**
      * 
-     * @param courseYear
+     * @param semesterYear
      * @param year
      * @param totalSemesters
      * @return
      */
-    private static String semesterDetails(String courseYear, int year, int totalSemesters) {
+    private static String semesterDetails(String semesterYear, int year, int totalSemesters) {
         String yearString = "Year " + year;
         String totalSemestersString = "Sem " + totalSemesters;
         String formatString = "|%-30s %-" + Math.max(18, String.valueOf(year).length()) + "s %-" + Math.max(6, String.valueOf(totalSemesters).length()) + "s %-34s |%-5s %s %-5s|";
-        return String.format(formatString, courseYear, yearString ,totalSemestersString,"", "", "Session To-Date", "");
+        return String.format(formatString, semesterYear, yearString ,totalSemestersString,"", "", "Session To-Date", "");
     }
     
     /**
