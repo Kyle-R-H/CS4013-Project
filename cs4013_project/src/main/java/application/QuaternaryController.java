@@ -114,7 +114,7 @@ public class QuaternaryController {
                         // Check if the current line corresponds to the LM121 entry
                         if (moduleParts.length > 0 && moduleParts[0].trim().equals(studentParts[5])) {
                             // Assuming the second field (index 1) contains the value for the year 2023/24
-                            String year2023_24 = parts.length > 1 ? parts[1].trim() : "";
+                            semesterYear = studentParts.length > 1 ? studentParts[1].trim() : "Code Wrong";
                             
                         }
 
@@ -145,6 +145,15 @@ public class QuaternaryController {
                     //StringBuilder to String
                     return fullTranscript.toString();
                 } else{
+                    if (studentParts[0].equals(SecondaryController.studentNumber)) {
+                        System.out.println(studentParts[0].equals(SecondaryController.studentNumber));
+                    }
+                    if (studentParts[0].equals(courseParts[1])) {
+                        System.out.println(studentParts[0].equals(courseParts[1]));
+                    }
+                    if (SecondaryController.studentNumber != null) {
+                        System.out.println(SecondaryController.studentNumber != null);
+                    }
                     return "Something not equalling in CSV or courseNumber is NULL";
                 }
             }
