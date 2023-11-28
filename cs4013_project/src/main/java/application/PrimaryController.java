@@ -18,6 +18,7 @@ public class PrimaryController {
         App.setRoot("tertiary");
     }
 
+    // Remove when doen for testing ---------------------------------------------------------------
     @FXML
     private void switchToQuarternary() throws IOException {
         App.setRoot("quarternary");
@@ -27,4 +28,5 @@ public class PrimaryController {
     private void switchToQuinary() throws IOException {
         App.setRoot("quinary");
     }
+    // --------------------------------------------------------------------------------------------
 }
