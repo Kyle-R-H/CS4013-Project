@@ -33,7 +33,9 @@ public class QuaternaryController {
                 "-fx-background-color: transparent; " +
                 "-fx-focus-color: transparent; " +
                 "-fx-faint-focus-color: transparent; " +
-                "-fx-border-color: transparent;"
+                "-fx-border-color: transparent;" +
+                "-fx-font-family: Consolas;" +
+                "-fx-font-size: 12;"
         );
         transcriptTextArea.getParent().requestFocus(); // Set focus to another node to apply the styles immediately
         //get info from csv's
@@ -62,7 +64,7 @@ public class QuaternaryController {
                     String courseCode = "";
                     String courseRoute = "";
 
-                    double qca = -1.0;
+                    double semesterQCA = -1.0;
                     double totalQca = -1.0;
                     String courseYear = "1990/91";
                     int year = 0;
@@ -89,11 +91,11 @@ public class QuaternaryController {
                                         "Course Parts: " + Arrays.toString(courseParts);
                     String transcript = transcriptHeader(SecondaryController.studentNumber, "N/A", forename, surname, courseName, courseCode, courseRoute) + "\n" +
                                         
-                                        getFormattedTranscript(qca, totalQca, courseYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
+                                        getFormattedTranscript(semesterQCA, totalQca, courseYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
                     
                     
                     
-                    return theString;
+                    return theString + "\n" + transcript;
                 } else{
                     return "Something not equalling in CSV or courseNumber is NULL";
                 }
@@ -114,10 +116,10 @@ public class QuaternaryController {
      * @param surname
      * @param course
      * @param courseCode
-     * @param route
+     * @param courseRoute
      * @return a the header of the transcript
      */
-    public String transcriptHeader(String studentID, String prefix, String forename, String surname, String course, String courseCode, String route){
+    public String transcriptHeader(String studentID, String prefix, String forename, String surname, String courseName, String courseCode, String courseRoute){
         return  theLine()+ "\n" +
                 String.format("|%48s %s %48s|", "","University of Limerick", "") +"\r\n" +
                 String.format("|%119s %s|", "", "")+ "\r\n" +
@@ -125,16 +127,16 @@ public class QuaternaryController {
                 String.format("|%119s %s|", "", "")+ "\r\n" +
                 theLine() +"\r\n" +
                 String.format("|%-12s %-"+ Math.max(6, String.valueOf(prefix).length()) +"s %-"+ Math.max(20, String.valueOf(forename).length()) +"s %-" + Math.max(20, String.valueOf(surname).length()) + "s %58s|" ,"Name", prefix, forename, surname, "") + "\r\n" +
-                String.format("|%-12s %-" + Math.max(107, String.valueOf(course).length()) +"s|", "Course", course)+ "\r\n" +
+                String.format("|%-12s %-" + Math.max(107, String.valueOf(courseName).length()) +"s|", "Course", courseName)+ "\r\n" +
                 String.format("|%-12s %-" + Math.max(107, String.valueOf(courseCode).length()) +"s|", "Course Code", courseCode)+ "\r\n" +
-                String.format("|%-12s %-"+ Math.max(107, String.valueOf(route).length()) +"s|","Route", route);
+                String.format("|%-12s %-"+ Math.max(107, String.valueOf(courseRoute).length()) +"s|","Route", courseRoute);
     }
 
     /**
      * 
      * @param semesterQCA
      * @param totalQCA
-     * @param courseYearString
+     * @param courseYear
      * @param year
      * @param totalSemesters
      * @param moduleIds
@@ -144,15 +146,19 @@ public class QuaternaryController {
      * @param credits
      * @return
      */
-    public String getFormattedTranscript(double semesterQCA, double totalQCA, String courseYearString, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
+    public String getFormattedTranscript(double semesterQCA, double totalQCA, String courseYear, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
         StringBuilder transcriptBuilder = new StringBuilder();
         transcriptBuilder.append(theLine()).append("\r\n")
-                        .append(semesterDetails(courseYearString, year, totalSemesters)).append("\r\n")
+                        .append(semesterDetails(courseYear, year, totalSemesters)).append("\r\n")
                         .append(blankLines()).append("\r\n")
                         .append(semesterHeader_n_QCA(semesterQCA, totalQCA)).append("\r\n")
                         .append(blankLines());
         for (int i = 0; i < moduleIds.size(); i++) {
-            transcriptBuilder.append(moduleInfo(moduleIds.get(i), moduleNames.get(i), registrationTypes.get(i), gradeLetters.get(i), credits.get(i))).append("\r\n");
+            if (moduleIds.size() <= 0) {
+                
+            }else{
+                transcriptBuilder.append(moduleInfo(moduleIds.get(i), moduleNames.get(i), registrationTypes.get(i), gradeLetters.get(i), credits.get(i))).append("\r\n");
+            }
         }
         transcriptBuilder.append(blankLines()).append("\r\n").append(theLine());
         return transcriptBuilder.toString();
@@ -168,16 +174,16 @@ public class QuaternaryController {
 
     /**
      * 
-     * @param courseYearString
+     * @param courseYear
      * @param year
      * @param totalSemesters
      * @return
      */
-    private static String semesterDetails(String courseYearString, int year, int totalSemesters) {
+    private static String semesterDetails(String courseYear, int year, int totalSemesters) {
         String yearString = "Year " + year;
         String totalSemestersString = "Sem " + totalSemesters;
         String formatString = "|%-30s %-" + Math.max(18, String.valueOf(year).length()) + "s %-" + Math.max(6, String.valueOf(totalSemesters).length()) + "s %-34s |%-5s %s %-5s|";
-        return String.format(formatString, courseYearString, yearString ,totalSemestersString,"", "", "Session To-Date", "");
+        return String.format(formatString, courseYear, yearString ,totalSemestersString,"", "", "Session To-Date", "");
     }
     
     /**
