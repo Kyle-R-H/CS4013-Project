@@ -23,7 +23,6 @@ public class QuaternaryController {
     @FXML
     private TextArea transcriptTextArea;
     
-
     @FXML
     private void initialize(){
         transcriptTextArea.setStyle(
@@ -38,38 +37,77 @@ public class QuaternaryController {
                 "-fx-font-size: 12;"
         );
         transcriptTextArea.getParent().requestFocus(); // Set focus to another node to apply the styles immediately
-        //get info from csv's
         transcriptTextArea.setText(transcriptWithCSVInfo());
     }
 
     @FXML
     private String transcriptWithCSVInfo(){
+<<<<<<< Updated upstream
         final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
         final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
+=======
+        final String STUDENT_FILE = "cs4013_project\\src\\main\\resources\\application\\Student.csv";
+        final String COURSE_FILE = "cs4013_project\\src\\main\\resources\\application\\Courses.csv";
+        final String MODULES_FILE = "cs4013_project\\src\\main\\resources\\application\\Modules.csv";
+>>>>>>> Stashed changes
 
         try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
-            BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE))) {
+            BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE));
+            BufferedReader moduleReader = new BufferedReader(new FileReader(MODULES_FILE));) {
 
             String studentLine = studentReader.readLine();
             String courseLine = courseReader.readLine();
+            String moduleLine = moduleReader.readLine();
 
-            while (studentLine != null && courseLine != null) { //while both files arent empty
+            while (studentLine != null && courseLine != null && moduleLine != null) { //while both files arent empty
                 String[] studentParts = studentLine.split(","); 
                 String[] courseParts = courseLine.split(",");
-                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null) {
+                String[] moduleParts = moduleLine.split(",");
+                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null && studentParts[5].equals(moduleParts[1])) {
                     //get info
-                    String forename = "";
-                    String surname = "";
-                    String courseName = "";
-                    String courseCode = "";
-                    String courseRoute = "";
-
-                    double semesterQCA = -1.0; //! Get from Calculator
-                    double totalQca = -1.0; //! Average of all QCAs
-                    String semesterYear = "1990/91";
-
                     int year = 0;
-                    int totalSemesters = 0;
+                    Double semesterQCA = -1.0; //! Get from Calculator into array
+                    if (year == 1) {
+                        semesterQCA = -1.0;
+                    } else if(year == 2){
+                        semesterQCA = -2.0;
+                    } else if (year == 3){
+                        semesterQCA = -3.0;
+                    } else if(year == 4){
+                        semesterQCA = -4.0;
+                    } else if (year == 5){
+                        semesterQCA = -5.0;
+                    } else {
+                        semesterQCA = -10.0;
+                    }
+                    
+                    double totalQca = -1.0; //Average of all QCAs
+                    //!Get QCA and divide it by number of semesters except the first one
+
+
+                    String semesterYear;
+                    if (year == 1) {
+                        semesterYear = moduleParts[2];
+                    } else if(year == 2){
+                        semesterYear = moduleParts[35];
+                    } else if (year == 3){
+                        semesterYear = moduleParts[68];
+                    } else if(year == 4){
+                        semesterYear = moduleParts[101];
+                    } else if (year == 5){
+                        semesterYear = moduleParts[134];
+                    } else {
+                        semesterYear ="0000/00";
+                    }
+                    String forename = studentParts[3];
+                    String surname = studentParts[4];
+                    String courseName = moduleParts[0];
+                    String courseCode = moduleParts[1];
+                    String courseRoute = studentParts[6];
+                    int totalSemesters = Integer.parseInt(studentParts[7]);
+
+
+
                     if (totalSemesters == 1 || totalSemesters == 2) {
                         year = 1;
                     } else if (totalSemesters == 3 || totalSemesters == 4){
@@ -82,6 +120,7 @@ public class QuaternaryController {
                         year = 5;
                     }
                     ArrayList<String> moduleIds = new ArrayList<>();
+
                     ArrayList<String> moduleNames = new ArrayList<>();
                     ArrayList<Character> registrationTypes = new ArrayList<>();
                     ArrayList<String> gradeLetters = new ArrayList<>();
