@@ -47,7 +47,7 @@ public class QuaternaryController {
 
         try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
             BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE))) {
-                
+
             String studentLine = studentReader.readLine();
             String courseLine = courseReader.readLine();
 
@@ -214,3 +214,10 @@ public class QuaternaryController {
     }
 
 }
+
+/*  
+    ~ TODO ~
+ *  Make course data change for each semester - for loop getFormattedTranscript
+ *  Get data from csvs for transcript
+ *  Edit/Add onto a csv for transcript data
+ */
