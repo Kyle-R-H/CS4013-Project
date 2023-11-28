@@ -1,3 +1,6 @@
+// Home Page
+
+
 package application;
 
 import java.io.IOException;
@@ -13,5 +16,15 @@ public class PrimaryController {
     @FXML
     private void switchToTertiary() throws IOException {
         App.setRoot("tertiary");
+    }
+
+    @FXML
+    private void switchToQuarternary() throws IOException {
+        App.setRoot("quarternary");
+    }
+
+    @FXML
+    private void switchToQuinary() throws IOException {
+        App.setRoot("quinary");
     }
 }

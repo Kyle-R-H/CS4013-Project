@@ -1,3 +1,6 @@
+studentId, password, prefix, forname, surname, courseName, courseCode, route, semesterQCA, totalQCA, courseYearString, totalSemesters
+a,a
+22342044,Meh
 22343261,dasMe
 12345678,password
 01234567,wordsOfThePass

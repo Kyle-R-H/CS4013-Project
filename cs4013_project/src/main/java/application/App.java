@@ -1,3 +1,6 @@
+// Launch file
+
+
 package application;
 
 import javafx.application.Application;
@@ -17,6 +20,7 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        stage.setTitle("QCA - Calculator");
         scene = new Scene(loadFXML("primary"), 640, 480);
         stage.setScene(scene);
         stage.show();
@@ -32,11 +36,6 @@ public class App extends Application {
     }
 
     public static void main(String[] args) {
-        try {
-            AccountLogin accountLogin = new AccountLogin();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
         launch();
     }
 
