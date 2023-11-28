@@ -42,9 +42,9 @@ public class QuaternaryController {
 
     @FXML
     private String transcriptWithCSVInfo(){
-        final String STUDENT_FILE = "cs4013_project\\src\\main\\resources\\application\\Student.csv";
-        final String COURSE_FILE = "cs4013_project\\src\\main\\resources\\application\\Courses.csv";
-        final String MODULES_FILE = "cs4013_project\\src\\main\\resources\\application\\Modules.csv";
+        final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
+        final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
+        final String MODULES_FILE = "src\\main\\resources\\application\\Modules.csv";
 
         try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
             BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE));
@@ -58,7 +58,7 @@ public class QuaternaryController {
                 String[] studentParts = studentLine.split(","); 
                 String[] courseParts = courseLine.split(",");
                 String[] moduleParts = moduleLine.split(",");
-                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null && studentParts[5].equals(moduleParts[1])) {
+                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null) {
                     //get info
                     int year = 0;
                     Double semesterQCA = -1.0; //! Get from Calculator into array
