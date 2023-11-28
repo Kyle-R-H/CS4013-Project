@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.geometry.Insets?>
+
+
+<VBox alignment="CENTER" spacing="20.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.QuinaryController">
+   
+   <HBox alignment="TOP_LEFT" spacing="10.0">
+      <Button text="Switch to Home View" onAction="#switchToPrimary"/>
+   </HBox>
+   
+   <VBox alignment="CENTER" spacing="10.0">
+      <Label text="Admin Page" />
+      <HBox alignment="CENTER" spacing="10.0">
+         <ComboBox fx:id="courseComboBox" promptText="Select Course" onAction="#updateStudentsForCourse" />
+         <ComboBox fx:id="studentComboBox" promptText="Select Student" />
+         <ComboBox fx:id="semesterComboBox" promptText="Select Semester" />
+      </HBox>
+   </VBox>
+
+   <HBox alignment="CENTER" spacing="10.0">
+      <!-- Small TextField and Save Button on the left -->
+      <VBox spacing="5.0">
+         <TextField fx:id="textField1" promptText="Grade" />
+         <ComboBox fx:id="moduleComboBox" promptText="Select Module" />
+         <Button text="Save" onAction="#saveChanges"/>
+      </VBox>
+      
+      <!-- Uneditable TextArea on the right -->
+      <TextArea fx:id="uneditableTextArea" promptText="Uneditable Text Area" editable="false"/>
+   </HBox>
+
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
