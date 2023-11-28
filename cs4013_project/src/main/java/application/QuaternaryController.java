@@ -44,8 +44,8 @@ public class QuaternaryController {
 
     @FXML
     private String transcriptWithCSVInfo(){
-        final String STUDENT_FILE = "C:\\Users\\russe\\Documents\\GitHub\\CS4013-Project\\cs4013_project\\src\\main\\resources\\application\\Student.csv";
-        final String COURSE_FILE = "C:\\Users\\russe\\Documents\\GitHub\\CS4013-Project\\cs4013_project\\src\\main\\resources\\application\\Courses.csv";
+        final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
+        final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
 
         try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
             BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE))) {
