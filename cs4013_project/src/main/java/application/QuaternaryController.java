@@ -42,14 +42,9 @@ public class QuaternaryController {
 
     @FXML
     private String transcriptWithCSVInfo(){
-<<<<<<< Updated upstream
-        final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
-        final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
-=======
         final String STUDENT_FILE = "cs4013_project\\src\\main\\resources\\application\\Student.csv";
         final String COURSE_FILE = "cs4013_project\\src\\main\\resources\\application\\Courses.csv";
         final String MODULES_FILE = "cs4013_project\\src\\main\\resources\\application\\Modules.csv";
->>>>>>> Stashed changes
 
         try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
             BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE));
