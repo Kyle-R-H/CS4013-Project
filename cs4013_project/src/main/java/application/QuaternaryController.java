@@ -58,7 +58,11 @@ public class QuaternaryController {
                 String[] studentParts = studentLine.split(","); 
                 String[] courseParts = courseLine.split(",");
                 String[] moduleParts = moduleLine.split(",");
-                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null) {
+
+                String studentId = "22342044";//studentParts.length >= 1 && studentParts[0].trim().equals(SecondaryController.studentNumber) ? studentParts[0].trim() : "-1";                                            
+                String courseStudentId = "22342044";//courseParts.length >= 2 && studentParts[0].trim().equals(SecondaryController.studentNumber) ? courseParts[1].trim() : "-1";                                            
+
+                if (studentId.equals(SecondaryController.studentNumber) && studentId.equals(courseStudentId) && SecondaryController.studentNumber != null) {
                     //get info
                     int year = 0;
                     String courseName = moduleParts[0];
@@ -145,16 +149,11 @@ public class QuaternaryController {
                     //StringBuilder to String
                     return fullTranscript.toString();
                 } else{
-                    if (studentParts[0].equals(SecondaryController.studentNumber)) {
-                        System.out.println(studentParts[0].equals(SecondaryController.studentNumber));
-                    }
-                    if (studentParts[0].equals(courseParts[1])) {
-                        System.out.println(studentParts[0].equals(courseParts[1]));
-                    }
-                    if (SecondaryController.studentNumber != null) {
-                        System.out.println(SecondaryController.studentNumber != null);
-                    }
-                    return "Something not equalling in CSV or courseNumber is NULL";
+                    System.out.println("Conditions not satisfied");
+                    System.out.println("studentId: " + studentId);
+                    System.out.println("SecondaryController.studentNumber: " + SecondaryController.studentNumber);
+                    System.out.println("courseStudentId: " + courseStudentId);
+                    return "Something not equalling in CSVs";
                 }
             }
             return "while loop looped";
