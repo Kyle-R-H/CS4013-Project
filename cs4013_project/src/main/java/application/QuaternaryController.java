@@ -61,25 +61,10 @@ public class QuaternaryController {
                 if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null) {
                     //get info
                     int year = 0;
-                    Double semesterQCA = -1.0; //! Get from Calculator into array
-                    if (year == 1) {
-                        semesterQCA = -1.0;
-                    } else if(year == 2){
-                        semesterQCA = -2.0;
-                    } else if (year == 3){
-                        semesterQCA = -3.0;
-                    } else if(year == 4){
-                        semesterQCA = -4.0;
-                    } else if (year == 5){
-                        semesterQCA = -5.0;
-                    } else {
-                        semesterQCA = -10.0;
-                    }
+                    String courseName = moduleParts[0];
+                    String courseCode = moduleParts[1];
+                    String courseRoute = "n/a";             //^get from module[2]
                     
-                    double totalQca = -1.0; //Average of all QCAs
-                    //!Get QCA and divide it by number of semesters except the first one
-
-
                     String semesterYear;
                     if (year == 1) {
                         semesterYear = moduleParts[2];
@@ -94,14 +79,8 @@ public class QuaternaryController {
                     } else {
                         semesterYear ="0000/00";
                     }
-                    String forename = studentParts[3];
-                    String surname = studentParts[4];
-                    String courseName = moduleParts[0];
-                    String courseCode = moduleParts[1];
-                    String courseRoute = studentParts[6];
+
                     int totalSemesters = Integer.parseInt(studentParts[7]);
-
-
 
                     if (totalSemesters == 1 || totalSemesters == 2) {
                         year = 1;
@@ -115,22 +94,56 @@ public class QuaternaryController {
                         year = 5;
                     }
                     ArrayList<String> moduleIds = new ArrayList<>();
-
                     ArrayList<String> moduleNames = new ArrayList<>();
                     ArrayList<Character> registrationTypes = new ArrayList<>();
                     ArrayList<String> gradeLetters = new ArrayList<>();
                     ArrayList<Integer> credits = new ArrayList<>();
                     
-                    
-                    String theString = "Student Parts: " + Arrays.toString(studentParts) + "\n" +
+                    //return transcript string
+                    StringBuilder fullTranscript = new StringBuilder();
+                    //#region temp
+                    String theString =  "Student Parts: " + Arrays.toString(studentParts) + "\n" +
+                                        "Module Parts: " + Arrays.toString(moduleParts) + "\n" +
                                         "Course Parts: " + Arrays.toString(courseParts);
-                    String transcript = transcriptHeader(SecondaryController.studentNumber, "N/A", forename, surname, courseName, courseCode, courseRoute) + "\n" +
-                                        
-                                        getFormattedTranscript(semesterQCA, totalQca, semesterYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
+                    fullTranscript.append(theString);
+                    //#endregion
+                    fullTranscript.append(transcriptHeader(SecondaryController.studentNumber, studentParts[2], studentParts[3], studentParts[4], courseName, courseCode, courseRoute));
                     
-                    
-                    
-                    return theString + "\n" + transcript;
+                    for (int semesterCount = 1; semesterCount <= totalSemesters; semesterCount++) {
+
+                        // Check if the current line corresponds to the LM121 entry
+                        if (moduleParts.length > 0 && moduleParts[0].trim().equals(studentParts[5])) {
+                            // Assuming the second field (index 1) contains the value for the year 2023/24
+                            String year2023_24 = parts.length > 1 ? parts[1].trim() : "";
+                            
+                        }
+
+
+                        //#region //! Get from Calculator into array
+                        Double semesterQCA = -1.0; 
+                        if (year == 1) {
+                            semesterQCA = -1.0;
+                        } else if(year == 2){
+                            semesterQCA = -2.0;
+                        } else if (year == 3){
+                            semesterQCA = -3.0;
+                        } else if(year == 4){
+                            semesterQCA = -4.0;
+                        } else if (year == 5){
+                            semesterQCA = -5.0;
+                        } else {
+                            semesterQCA = -10.0;
+                        }
+                        //#endregion
+                        //#region //! Get QCA average
+                        double totalQca = -1.0; //Average of all QCAs
+                        //!Get QCA and divide it by number of semesters except the first one
+                        //#endregion
+                        
+                        fullTranscript.append(getFormattedTranscript(semesterQCA, totalQca, semesterYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits));
+                    }
+                    //StringBuilder to String
+                    return fullTranscript.toString();
                 } else{
                     return "Something not equalling in CSV or courseNumber is NULL";
                 }
@@ -259,6 +272,4 @@ public class QuaternaryController {
 /*  
     ~ TODO ~
  *  Make course data change for each semester - for loop getFormattedTranscript
- *  Get data from csvs for transcript
- *  Edit/Add onto a csv for transcript data
  */
