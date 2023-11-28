@@ -3,6 +3,7 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.InputStreamReader;
 // import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,18 +36,17 @@ public class QuaternaryController {
         );
         transcriptTextArea.getParent().requestFocus(); // Set focus to another node to apply the styles immediately
         //get info from csv's
-
-        transcriptTextArea.setText(csvInfo());
+        String pleaseWork = csvInfo();
+        transcriptTextArea.setText(pleaseWork);
     }
 
     @FXML
     private String csvInfo(){
-        final String STUDENT_FILE = "\\application\\Student.csv";
-        final String COURSE_FILE = "\\application\\Courses.csv";
+        final String STUDENT_FILE = "C:\\Users\\russe\\Documents\\GitHub\\CS4013-Project\\cs4013_project\\src\\main\\resources\\application\\Student.csv";
+        final String COURSE_FILE = "C:\\Users\\russe\\Documents\\GitHub\\CS4013-Project\\cs4013_project\\src\\main\\resources\\application\\Courses.csv";
 
-        try(BufferedReader studentReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(STUDENT_FILE)));
-            BufferedReader  courseReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream(COURSE_FILE)))) {
-
+        try (BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
+                BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE))) {
             String studentLine = studentReader.readLine();
             String courseLine = courseReader.readLine();
 
