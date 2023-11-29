@@ -80,7 +80,8 @@ public class QuinaryController {
 
         if (selectedCourse != null && !selectedCourse.isEmpty()) {
             try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/Courses.csv"))) {
-                String line;                while ((line = reader.readLine()) != null) {
+                String line;                
+                while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
 
                     if (parts.length >= 2 && parts[0].trim().equals(selectedCourse)) {
