@@ -3,7 +3,9 @@
 package application;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+// import java.io.FileReader;
+import java.io.InputStreamReader;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -41,114 +43,179 @@ public class QuaternaryController {
     }
 
     @FXML
-    private String transcriptWithCSVInfo(){
-        final String STUDENT_FILE = "src\\main\\resources\\application\\Student.csv";
-        final String COURSE_FILE = "src\\main\\resources\\application\\Courses.csv";
-        final String MODULES_FILE = "src\\main\\resources\\application\\Modules.csv";
+    private String transcriptWithCSVInfo() {
+        // final String STUDENT_FILE = "Student.csv";
+        // final String COURSE_FILE = "Courses.csv";
+        // final String MODULES_FILE = "Modules.csv";
 
-        try(BufferedReader studentReader = new BufferedReader(new FileReader(STUDENT_FILE));
-            BufferedReader courseReader = new BufferedReader(new FileReader(COURSE_FILE));
-            BufferedReader moduleReader = new BufferedReader(new FileReader(MODULES_FILE));) {
+        try(BufferedReader studentReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Student.csv")));
+            BufferedReader courseReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Courses.csv")));
+            BufferedReader moduleReader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Modules.csv")))) {
 
-            String studentLine = studentReader.readLine();
-            String courseLine = courseReader.readLine();
-            String moduleLine = moduleReader.readLine();
-
-            while (studentLine != null && courseLine != null && moduleLine != null) { //while both files arent empty
-                String[] studentParts = studentLine.split(","); 
-                String[] courseParts = courseLine.split(",");
-                String[] moduleParts = moduleLine.split(",");
-                if (studentParts[0].equals(SecondaryController.studentNumber) && studentParts[0].equals(courseParts[1]) && SecondaryController.studentNumber != null) {
-                    //get info
-                    int year = 0;
-                    String courseName = moduleParts[0];
-                    String courseCode = moduleParts[1];
-                    String courseRoute = "n/a";             //^get from module[2]
-                    
-                    String semesterYear;
-                    if (year == 1) {
-                        semesterYear = moduleParts[2];
-                    } else if(year == 2){
-                        semesterYear = moduleParts[35];
-                    } else if (year == 3){
-                        semesterYear = moduleParts[68];
-                    } else if(year == 4){
-                        semesterYear = moduleParts[101];
-                    } else if (year == 5){
-                        semesterYear = moduleParts[134];
-                    } else {
-                        semesterYear ="0000/00";
+            String studentLine;
+            while ((studentLine = studentReader.readLine()) != null) { //first while looping through studentLine
+                String[] studentParts = studentLine.split(",");
+                for (String row : studentParts) {
+                    System.out.println("studentLine: "+ row);
+                    if (studentLine.contains(SecondaryController.studentNumber)) {
+                        studentLine = row;     
+                        break;                   
                     }
+                }
+                if (studentLine.contains(SecondaryController.studentNumber)) {
+                    String courseLine;
+                    System.out.println("Student Line: " + studentLine);
 
-                    int totalSemesters = Integer.parseInt(studentParts[7]);
+                    while ((courseLine = courseReader.readLine()) != null) { //second while loop looping through courseLine
+                        String[] courseParts = courseLine.split(",");
+                        for (String row : courseParts) {
+                            System.out.println("courseLine: " +row);
+                            if (courseLine.contains(SecondaryController.studentNumber)) {
+                                courseLine = row;     
+                                break;                   
+                            }
+                        }
+                        if (courseLine.contains(SecondaryController.studentNumber)) {
+                            String moduleLine;
+                            System.out.println("Course Line: " + courseLine);
 
-                    if (totalSemesters == 1 || totalSemesters == 2) {
-                        year = 1;
-                    } else if (totalSemesters == 3 || totalSemesters == 4){
-                        year = 2;
-                    } else if (totalSemesters == 5 || totalSemesters == 6){
-                        year = 3;
-                    } else if (totalSemesters == 7 || totalSemesters == 8){
-                        year = 4;
-                    } else if (totalSemesters == 9 || totalSemesters == 10){
-                        year = 5;
-                    }
-                    ArrayList<String> moduleIds = new ArrayList<>();
-                    ArrayList<String> moduleNames = new ArrayList<>();
-                    ArrayList<Character> registrationTypes = new ArrayList<>();
-                    ArrayList<String> gradeLetters = new ArrayList<>();
-                    ArrayList<Integer> credits = new ArrayList<>();
-                    
-                    //return transcript string
-                    StringBuilder fullTranscript = new StringBuilder();
-                    //#region temp
-                    String theString =  "Student Parts: " + Arrays.toString(studentParts) + "\n" +
-                                        "Module Parts: " + Arrays.toString(moduleParts) + "\n" +
-                                        "Course Parts: " + Arrays.toString(courseParts);
-                    fullTranscript.append(theString);
-                    //#endregion
-                    fullTranscript.append(transcriptHeader(SecondaryController.studentNumber, studentParts[2], studentParts[3], studentParts[4], courseName, courseCode, courseRoute));
-                    
-                    for (int semesterCount = 1; semesterCount <= totalSemesters; semesterCount++) {
+                            while ((moduleLine = moduleReader.readLine()) != null) {
+                                System.out.println("Student Line: " + studentLine);
+                                System.out.println("Course Line: " + courseLine);
+                                System.out.println("Module Line: " + moduleLine);
 
-                        // Check if the current line corresponds to the LM121 entry
-                        if (moduleParts.length > 0 && moduleParts[0].trim().equals(studentParts[5])) {
-                            // Assuming the second field (index 1) contains the value for the year 2023/24
-                            String year2023_24 = parts.length > 1 ? parts[1].trim() : "";
-                            
+                                // Split lines into parts
+                                String[] moduleParts = moduleLine.split(",");
+
+                                System.out.println("Student Parts: " + Arrays.toString(studentParts));
+                                System.out.println("Course Parts: " + Arrays.toString(courseParts));
+                                System.out.println("Module Parts: " + Arrays.toString(moduleParts));
+
+                                // Extract student IDs
+                                String studentId = null;
+                                if (studentParts.length >= 1 && studentParts[0].trim().equals(SecondaryController.studentNumber.trim())) {
+                                    studentId = studentParts[0].trim();
+                                }
+                                String courseStudentId = null;
+                                if (courseParts.length >= 2 && courseParts[1].trim().equals(SecondaryController.studentNumber.trim())) {
+                                    courseStudentId = courseParts[1].trim();
+                                }
+
+                                // Check conditions for matching records
+                                if (studentId != null && courseStudentId != null && studentId.equals(SecondaryController.studentNumber) && studentId.equals(courseStudentId) && SecondaryController.studentNumber != null) {
+                                    // Extract information
+                                    int year = 0;
+                                    String courseName = moduleParts[0];
+                                    String courseCode = moduleParts[1];
+                                    String courseRoute = "n/a"; // ^get from module[2]
+
+                                    String semesterYear;
+                                    if (year == 1) {
+                                        semesterYear = moduleParts[2];
+                                    } else if (year == 2) {
+                                        semesterYear = moduleParts[35];
+                                    } else if (year == 3) {
+                                        semesterYear = moduleParts[68];
+                                    } else if (year == 4) {
+                                        semesterYear = moduleParts[101];
+                                    } else if (year == 5) {
+                                        semesterYear = moduleParts[134];
+                                    } else {
+                                        semesterYear = "0000/00";
+                                    }
+
+                                    int totalSemesters = Integer.parseInt(studentParts[7]);
+
+                                    // Determine the academic year
+                                    if (totalSemesters == 1 || totalSemesters == 2) {
+                                        year = 1;
+                                    } else if (totalSemesters == 3 || totalSemesters == 4) {
+                                        year = 2;
+                                    } else if (totalSemesters == 5 || totalSemesters == 6) {
+                                        year = 3;
+                                    } else if (totalSemesters == 7 || totalSemesters == 8) {
+                                        year = 4;
+                                    } else if (totalSemesters == 9 || totalSemesters == 10) {
+                                        year = 5;
+                                    }
+
+                                    // Initialize arrays for module information
+                                    ArrayList<String> moduleIds = new ArrayList<>();
+                                    ArrayList<String> moduleNames = new ArrayList<>();
+                                    ArrayList<Character> registrationTypes = new ArrayList<>();
+                                    ArrayList<String> gradeLetters = new ArrayList<>();
+                                    ArrayList<Integer> credits = new ArrayList<>();
+
+                                    // Build the transcript string
+                                    StringBuilder fullTranscript = new StringBuilder();
+                                    String theString = "Student Parts: " + Arrays.toString(studentParts) + "\n" +
+                                            "Module Parts: " + Arrays.toString(moduleParts) + "\n" +
+                                            "Course Parts: " + Arrays.toString(courseParts);
+                                    fullTranscript.append(theString);
+                                    fullTranscript.append(transcriptHeader(SecondaryController.studentNumber, studentParts[2], studentParts[3], studentParts[4], courseName, courseCode, courseRoute));
+
+                                    for (int semesterCount = 1; semesterCount <= totalSemesters; semesterCount++) {
+                                        // Check if the current line corresponds to the LM121 entry
+                                        if (moduleParts.length > 0 && moduleParts[0].trim().equals(studentParts[5])) {
+                                            // Assuming the second field (index 1) contains the value for the year 2023/24
+                                            semesterYear = studentParts.length > 1 ? studentParts[1].trim() : "Code Wrong";
+                                        }
+
+                                        // Get QCA and divide it by the number of semesters except the first one
+                                        Double semesterQCA = -1.0;
+                                        if (year == 1) {
+                                            semesterQCA = -1.0;
+                                        } else if (year == 2) {
+                                            semesterQCA = -2.0;
+                                        } else if (year == 3) {
+                                            semesterQCA = -3.0;
+                                        } else if (year == 4) {
+                                            semesterQCA = -4.0;
+                                        } else if (year == 5) {
+                                            semesterQCA = -5.0;
+                                        } else {
+                                            semesterQCA = -10.0;
+                                        }
+
+                                        // Get QCA average
+                                        double totalQca = -1.0; // Average of all QCAs
+
+                                        // Append the formatted transcript for the current semester
+                                        fullTranscript.append(getFormattedTranscript(semesterQCA, totalQca, semesterYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits));
+                                    }
+
+                                    // Convert StringBuilder to String
+                                    return fullTranscript.toString();
+                                } else {
+                                    System.out.println("Conditions not satisfied");
+                                    System.out.println("studentId: " + studentId);
+                                    System.out.println("SecondaryController.studentNumber: " + SecondaryController.studentNumber);
+                                    System.out.println("courseStudentId: " + courseStudentId);
+                                    return "Something not equalling in CSVs";
+                                }
+                            }
+
+                            // Debugging output
+                            System.out.println("Student Line: " + studentLine);
+                            System.out.println("Course Line: " + courseLine);
+                            System.out.println("Module Line: " + moduleLine);
+                            return "3rd while loop looped";
                         }
 
-
-                        //#region //! Get from Calculator into array
-                        Double semesterQCA = -1.0; 
-                        if (year == 1) {
-                            semesterQCA = -1.0;
-                        } else if(year == 2){
-                            semesterQCA = -2.0;
-                        } else if (year == 3){
-                            semesterQCA = -3.0;
-                        } else if(year == 4){
-                            semesterQCA = -4.0;
-                        } else if (year == 5){
-                            semesterQCA = -5.0;
-                        } else {
-                            semesterQCA = -10.0;
-                        }
-                        //#endregion
-                        //#region //! Get QCA average
-                        double totalQca = -1.0; //Average of all QCAs
-                        //!Get QCA and divide it by number of semesters except the first one
-                        //#endregion
-                        
-                        fullTranscript.append(getFormattedTranscript(semesterQCA, totalQca, semesterYear, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits));
+                        // Debugging output
+                        System.out.println("Student Line: " + studentLine);
+                        System.out.println("Course Line: " + courseLine);
+                        return "2ND While loop";
                     }
-                    //StringBuilder to String
-                    return fullTranscript.toString();
-                } else{
-                    return "Something not equalling in CSV or courseNumber is NULL";
+
+                    // Debugging output
+                    System.out.println("Student Line: " + studentLine);
+                    return "1st while loop";
                 }
             }
-            return "while loop looped";
+            //Debugging output
+            return "Doesnt enter While loop: " + studentLine;
+
         } catch (IOException e) {
             e.printStackTrace();
             // Handle IO exception
@@ -268,8 +335,3 @@ public class QuaternaryController {
     }
 
 }
-
-/*  
-    ~ TODO ~
- *  Make course data change for each semester - for loop getFormattedTranscript
- */
