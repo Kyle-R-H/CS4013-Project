@@ -7,7 +7,6 @@ CK411,CK,Data Science & Analysis,2022/23,2023/24,2024/25,2025/26,,
 6,CS3306,CS3318,CS3509,ST3069,ST3070,N/A,N/A,N/A 
 7,CS4701,CS4704,CS4705,AM2061,AM3064,N/A,N/A,N/A 
 8,ST4060,ST4061,ST4069,AM4006,CS4150,N/A,N/A,N/A
-10, , , , , , , , 
 11, , , , , , , , 
 12, , , , , , , , 
 13, , , , , , , , 
@@ -15,16 +14,15 @@ CK411,CK,Data Science & Analysis,2022/23,2023/24,2024/25,2025/26,,
 15, , , , , , , , 
 16, , , , , , , , 
 17, , , , , , , , 
-18, , , , , , , , 
-20, , , , , , , , 
-21, , , , , , , , 
-22, , , , , , , , 
-23, , , , , , , , 
-24, , , , , , , , 
-25, , , , , , , , 
-26, , , , , , , , 
-27, , , , , , , , 
-28, , , , , , , , 
+18, , , , , , , ,
+21,0,0,0,0,0,0,0,0
+22,0,0,0,0,0,0,0,0
+23,0,0,0,0,0,0,0,0
+24,0,0,0,0,0,0,0,0
+25,0,0,0,0,0,0,0,0
+26,0,0,0,0,0,0,0,0
+27,0,0,0,0,0,0,0,0
+28,0,0,0,0,0,0,0,0
 LM051,CS,Computer Systems,2022/23,2023/24,2024/25,2025/26,,
 1,CS4012,CS4141,CS4221,ET4011,MA4111,N/A,N/A,N/A
 2,CS4222,CS4182,CS4043,ET4162,MA4402,N/A,N/A,N/A
@@ -34,24 +32,22 @@ LM051,CS,Computer Systems,2022/23,2023/24,2024/25,2025/26,,
 6,CS4457,CS4187,CS4084,CS4116,CS4106,N/A,N/A,N/A
 7,CS4617,CS4125,CS4011,CS4337,CS4287,N/A,N/A,N/A
 8,CS4618,CS4227,CS4158,CS4168,N/A,N/A,N/A,N/A
-10, , , , , , , , 
-11, , , , , , , , 
-12, , , , , , , , 
-13, , , , , , , , 
-14, , , , , , , , 
-15, , , , , , , , 
-16, , , , , , , , 
-17, , , , , , , , 
-18, , , , , , , , 
-20, , , , , , , , 
-21, , , , , , , , 
-22, , , , , , , , 
-23, , , , , , , , 
-24, , , , , , , , 
-25, , , , , , , , 
-26, , , , , , , , 
-27, , , , , , , , 
-28, , , , , , , , 
+11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,N/A,N/A,N/A
+12,Software Development,Foundations of Computer Science 2,Games Modelling Design,Computing System Organisation,Computer Maths 2,N/A,N/A,N/A
+13,Object Oriented Development, Operating Systems,	Database Systems ,Software Testing and Inspection ,Software Requirements and Modelling ,N/A,N/A,N/A
+14,Intelligent Systems,Event Driven Programming ,Data Structures and Algorithms ,	Computer Graphics , 	Statistics for Computing,N/A,N/A,N/A
+15, Cooperative Education, Cooperative Education,N/A ,N/A , N/A,N/A, N/A,N/A 
+16, Project Management and Practice, Professional Issues in Computing, Mobile Application Development, Software Development Project, 	Machine Learning: Methods and Applications,N/A,N/A,N/A
+17,	Computer Systems Project 1 ,Systems Analysis and Design , 	Advanced Programming Concepts and Practices,Big Data Management and Security ,Neural Computing ,N/A,N/A,N/A
+18,Computer Systems Project 2 , 	Software Design and Architecture,	Programming Language Technology ,Data Mining , , , , 
+21,6,6,6,6,6,0,0,0 
+22,6,6,6,6,6,0,0,0 
+23,6,6,6,6,6,0,0,0 
+24,6,6,6,6,6,0,0,0 
+25,6,6,6,6,6,0,0,0 
+26,6,6,6,6,6,0,0,0 
+27,6,6,6,6,6,0,0,0 
+28,6,6,6,6,6,0,0,0 
 LM121,CS,Computer Games Development,2022/23,2023/24,2024/25,2025/26,,
 1,CS4012,CS4141,CS4221,ET4011,MA4111,N/A,N/A,N/A
 2,CS4222,CS4182,CS4043,ET4162,MA4402,N/A,N/A,N/A
@@ -61,8 +57,7 @@ LM121,CS,Computer Games Development,2022/23,2023/24,2024/25,2025/26,,
 6,CS4457,CS4187,CS4084,CS4116,CS4106,N/A,N/A,N/A
 7,CS4617,CS4125,CS4011,CS4337,CS4287,N/A,N/A,N/A
 8,CS4618,CS4227,CS4158,CS4168,N/A,N/A,N/A,N/A
-10,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,N/A,N/A,N/A
-11, , , , , , , , 
+11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,N/A,N/A,N/A
 12, , , , , , , , 
 13, , , , , , , , 
 14, , , , , , , , 
@@ -70,12 +65,11 @@ LM121,CS,Computer Games Development,2022/23,2023/24,2024/25,2025/26,,
 16, , , , , , , , 
 17, , , , , , , , 
 18, , , , , , , , 
-20, , , , , , , , 
-21, , , , , , , , 
-22, , , , , , , , 
-23, , , , , , , , 
-24, , , , , , , , 
-25, , , , , , , , 
-26, , , , , , , , 
-27, , , , , , , , 
-28, , , , , , , , 
+21,6,6,6,6,6,0,0,0 
+22,6,6,6,6,6,0,0,0 
+23,6,6,6,6,6,0,0,0 
+24,6,6,6,6,6,0,0,0 
+25,6,6,6,6,6,0,0,0 
+26,6,6,6,6,6,0,0,0 
+27,6,6,6,6,6,0,0,0 
+28,6,6,6,6,6,0,0,0 
