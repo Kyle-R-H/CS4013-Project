@@ -1,75 +1,75 @@
 CK411,CK,Data Science & Analysis,2022/23,2023/24,2024/25,2025/26,,
-1,MA1058,CS1117,MA1059,ST1401,CS1106,AM1054,CS1112,N/A
-2,CS1117,AM1053,ST1051,ST1050,N/A,N/A,N/A,N/A
+1,MA1058,CS1117,MA1059,ST1401,CS1106,AM1054,CS1112,
+2,CS1117,AM1053,ST1051,ST1050,,,,
 3,AM2052,MA2055,MA2071,CS2513,CS2208,CS2515,CS2516,ST2054
-4,CS2514,CS2209,CS2516,ST2402,ST2054,N/A,N/A,N/A
-5,CS3204,CS3205,CS3220,ST3053,ST3061,N/A,N/A,N/A
-6,CS3306,CS3318,CS3509,ST3069,ST3070,N/A,N/A,N/A
-7,CS4701,CS4704,CS4705,AM2061,AM3064,N/A,N/A,N/A
-8,ST4060,ST4061,ST4069,AM4006,CS4150,CS4407,N/A,N/A
-11,Introduction to Linear Algebra,Introduction to Programming,Calculus,Introduction to Operations Research,Introduction to Relational Databases,Mathematical Software,Foundations of Computer Science I,N/A
-12,Introduction to Programming,Introduction to Mathematical Modelling,Introduction to Probability and Statistics,Statistical Programming in R,N/A,N/A,N/A,N/A
+4,CS2514,CS2209,CS2516,ST2402,ST2054,,,
+5,CS3204,CS3205,CS3220,ST3053,ST3061,,,
+6,CS3306,CS3318,CS3509,ST3069,ST3070,,,
+7,CS4701,CS4704,CS4705,AM2061,AM3064,,,
+8,ST4060,ST4061,ST4069,AM4006,CS4150,CS4407,,
+11,Introduction to Linear Algebra,Introduction to Programming,Calculus,Introduction to Operations Research,Introduction to Relational Databases,Mathematical Software,Foundations of Computer Science I,
+12,Introduction to Programming,Introduction to Mathematical Modelling,Introduction to Probability and Statistics,Statistical Programming in R,,,,
 13,Mathematical Modelling,Linear Algebra,Multivariable Calculus,Intermediate Programming,Information Storage and Management,Algorithms and Data Structures I,Algorithms and Data Structures II,Probability and Mathematical Statistics
-14,Introduction to Java,Information Storage and Management II,Algorithms and Data Structures II,Modelling and Systems for Decision Making,Probability and Mathematical Statistics,N/A,N/A,N/A
-15,Cloud Infrastructure and Services,Data Visualization for Analytics Applications,Work Placement DSA,Stochastic Modelling I,Statistical Theory of Estimation,N/A,N/A,N/A
-16,Workplace Technology and Skills,Advanced Programming with Java,Theory of Computation,Generalised Linear Models,Statistical Theory of Hypothesis Testing,N/A,N/A,N/A
-17,Analytics Project for Computer Science,Algorithms and Data Structures for Analytics,Computational Machine Learning,Computer Modelling and Numerical Techniques,Computational Techniques,N/A,N/A,N/A
-18,Statistical Methods for Machine Learning I,Statistical Methods for Machine Learning II,Multivariate Methods for Data Analysis,Mathematical Modelling of Biological Systems with Differential Equations,Principles of Compilation,Algorithm Analysis,N/A,N/A
-21,5,15,5,5,5,5,5,0
-22,15,5,5,5,0,0,0,0
+14,Introduction to Java,Information Storage and Management II,Algorithms and Data Structures II,Modelling and Systems for Decision Making,Probability and Mathematical Statistics,,,
+15,Cloud Infrastructure and Services,Data Visualization for Analytics Applications,Work Placement DSA,Stochastic Modelling I,Statistical Theory of Estimation,,,
+16,Workplace Technology and Skills,Advanced Programming with Java,Theory of Computation,Generalised Linear Models,Statistical Theory of Hypothesis Testing,,,
+17,Analytics Project for Computer Science,Algorithms and Data Structures for Analytics,Computational Machine Learning,Computer Modelling and Numerical Techniques,Computational Techniques,,,
+18,Statistical Methods for Machine Learning I,Statistical Methods for Machine Learning II,Multivariate Methods for Data Analysis,Mathematical Modelling of Biological Systems with Differential Equations,Principles of Compilation,Algorithm Analysis,,
+21,5,15,5,5,5,5,5,
+22,15,5,5,5,,,,
 23,5,5,5,5,5,5,5,10
-24,5,5,5,5,10,0,0,0
-25,5,5,10,5,5,0,0,0
-26,10,5,5,5,5,0,0,0
-27,15,5,5,5,5,0,0,0
-28,5,5,10,5,5,5,0,0
+24,5,5,5,5,10,,,
+25,5,5,10,5,5,,,
+26,10,5,5,5,5,,,
+27,15,5,5,5,5,,,
+28,5,5,10,5,5,5,,
 LM051,CS,Computer Systems,2022/23,2023/24,2024/25,2025/26,,
-1,CS4012,CS4141,CS4221,ET4011,MA4111,N/A,N/A,N/A
-2,CS4222,CS4182,CS4043,ET4162,MA4402,N/A,N/A,N/A
-3,CS4013,CS4023,CS4416,CS4004,CS4178,N/A,N/A,N/A
-4,CS4006,CS4076,CS4115,CS4815,MA4413,N/A,N/A,N/A
-5,CS4230,CS4310,N/A,N/A,N/A,N/A,N/A,N/A
-6,CS4457,CS4187,CS4084,CS4116,CS4106,N/A,N/A,N/A
-7,CS4617,CS4125,CS4011,CS4337,CS4287,N/A,N/A,N/A
-8,CS4618,CS4227,CS4158,CS4168,N/A,N/A,N/A,N/A
-11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,N/A,N/A,N/A
-12,Software Development,Foundations of Computer Science 2,Games Modelling Design,Computing System Organisation,Computer Maths 2,N/A,N/A,N/A
-13,Object Oriented Development,Operating Systems,Database Systems,Software Testing and Inspection,Software Requirements and Modelling,N/A,N/A,N/A
-14,Intelligent Systems,Event Driven Programming,Data Structures and Algorithms,Computer Graphics,Statistics for Computing,N/A,N/A,N/A
-15,Cooperative Education,Cooperative Education,N/A,N/A,N/A,N/A,N/A,N/A
-16,Project Management and Practice,Professional Issues in Computing,Mobile Application Development,Software Development Project,Machine Learning: Methods and Applications,N/A,N/A,N/A
-17,Computer Systems Project 1,Systems Analysis and Design,Advanced Programming Concepts and Practices,Big Data Management and Security,Neural Computing,N/A,N/A,N/A
-18,Computer Systems Project 2,Software Design and Architecture,Programming Language Technology,Data Mining,N/A,N/A,N/A,N/A
-21,6,6,6,6,6,0,0,0
-22,6,6,6,6,6,0,0,0
-23,6,6,6,6,6,0,0,0
-24,6,6,6,6,6,0,0,0
-25,6,6,6,6,6,0,0,0
-26,6,6,6,6,6,0,0,0
-27,6,6,6,6,6,0,0,0
-28,6,6,6,6,6,0,0,0
+1,CS4012,CS4141,CS4221,ET4011,MA4111,,,
+2,CS4222,CS4182,CS4043,ET4162,MA4402,,,
+3,CS4013,CS4023,CS4416,CS4004,CS4178,,,
+4,CS4006,CS4076,CS4115,CS4815,MA4413,,,
+5,CS4230,CS4310,,,,,,
+6,CS4457,CS4187,CS4084,CS4116,CS4106,,,
+7,CS4617,CS4125,CS4011,CS4337,CS4287,,,
+8,CS4618,CS4227,CS4158,CS4168,,,,
+11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,,,
+12,Software Development,Foundations of Computer Science 2,Games Modelling Design,Computing System Organisation,Computer Maths 2,,,
+13,Object Oriented Development,Operating Systems,Database Systems,Software Testing and Inspection,Software Requirements and Modelling,,,
+14,Intelligent Systems,Event Driven Programming,Data Structures and Algorithms,Computer Graphics,Statistics for Computing,,,
+15,Cooperative Education,Cooperative Education,,,,,,
+16,Project Management and Practice,Professional Issues in Computing,Mobile Application Development,Software Development Project,Machine Learning: Methods and Applications,,,
+17,Computer Systems Project 1,Systems Analysis and Design,Advanced Programming Concepts and Practices,Big Data Management and Security,Neural Computing,,,
+18,Computer Systems Project 2,Software Design and Architecture,Programming Language Technology,Data Mining,,,,
+21,6,6,6,6,6,,,
+22,6,6,6,6,6,,,
+23,6,6,6,6,6,,,
+24,6,6,6,6,6,,,
+25,15,15,,,,,,
+26,6,6,6,6,6,,,
+27,6,6,6,6,6,,,
+28,6,6,6,6,6,,,
 LM121,CS,Computer Games Development,2022/23,2023/24,2024/25,2025/26,,
-1,CS4012,CS4141,CS4221,ET4011,MA4111,N/A,N/A,N/A
-2,CS4222,CS4182,CS4043,ET4162,MA4402,N/A,N/A,N/A
-3,CS4013,CS4023,CS4416,CS4004,CS4093,N/A,N/A,N/A
-4,CS4006,CS4076,CS4115,CS4815,MA4413,N/A,N/A,N/A
-5,CS4457,CS4187,CS4084,CS4116,CS4106,N/A,N/A,N/A
-6,CS4230,CS4310,N/A,N/A,N/A,N/A,N/A,N/A
-7,CS4011,CS4085,CS4125,CS4287,CS4197,N/A,N/A,N/A
-8,CS4198,CS4227,CS4067,CS4168,N/A,N/A,N/A,N/A
-11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,N/A,N/A,N/A
-12,Software Development,Foundations of Computer Science 2,Games Modelling Design,Computing System Organisation,Computer Maths 2,N/A,N/A,N/A
-13,Object Oriented Development,Operating Systems,Database Systems,Software Testing and Inspection,Games for Global Markets,N/A,N/A,N/A
-14,Intelligent Systems,Event Driven Programming,Data Structures and Algorithms,Computer Graphics,Statistics for Computing,N/A,N/A,N/A
-15,Computer Networks: Standards; Protocols and the IoT,Outcome-based Learning Laboratory,Distributed Computing with Java,Artificial Intelligence for Games,Embedded Software,N/A,N/A,N/A
-16,Cooperative Education,Cooperative Education,N/A,N/A,N/A,N/A,N/A,N/A
-17,Advanced Programming Concepts and Practices,Computer Graphics II: Tools and Techniques,Systems Analysis and Design,Neural Computing,Computer Games Development Project 1,N/A,N/A,N/A
-18,Computer Games Development Project 2,Software Design and Architecture,Writing Games Analysis,Data Mining,N/A,N/A,N/A,N/A
-21,6,6,6,6,6,0,0,0
-22,6,6,6,6,6,0,0,0
-23,6,6,6,6,6,0,0,0
-24,6,6,6,6,6,0,0,0
-25,6,6,6,6,6,0,0,0
-26,15,15,0,0,0,0,0,0
-27,6,6,6,6,6,0,0,0
-28,12,6,6,6,0,0,0,0
+1,CS4012,CS4141,CS4221,ET4011,MA4111,,,
+2,CS4222,CS4182,CS4043,ET4162,MA4402,,,
+3,CS4013,CS4023,CS4416,CS4004,CS4093,,,
+4,CS4006,CS4076,CS4115,CS4815,MA4413,,,
+5,CS4457,CS4187,CS4084,CS4116,CS4106,,,
+6,CS4230,CS4310,,,,,,
+7,CS4011,CS4085,CS4125,CS4287,CS4197,,,
+8,CS4198,CS4227,CS4067,CS4168,,,,
+11,Representation and Modelling,Introduction to Programming,Foundations of Computer Science 1,Fundamentals of Computer Organisation,Discrete Mathematics,,,
+12,Software Development,Foundations of Computer Science 2,Games Modelling Design,Computing System Organisation,Computer Maths 2,,,
+13,Object Oriented Development,Operating Systems,Database Systems,Software Testing and Inspection,Games for Global Markets,,,
+14,Intelligent Systems,Event Driven Programming,Data Structures and Algorithms,Computer Graphics,Statistics for Computing,,,
+15,Computer Networks: Standards; Protocols and the IoT,Outcome-based Learning Laboratory,Distributed Computing with Java,Artificial Intelligence for Games,Embedded Software,,,
+16,Cooperative Education,Cooperative Education,,,,,,
+17,Advanced Programming Concepts and Practices,Computer Graphics II: Tools and Techniques,Systems Analysis and Design,Neural Computing,Computer Games Development Project 1,,,
+18,Computer Games Development Project 2,Software Design and Architecture,Writing Games Analysis,Data Mining,,,,
+21,6,6,6,6,6,,,
+22,6,6,6,6,6,,,
+23,6,6,6,6,6,,,
+24,6,6,6,6,6,,,
+25,6,6,6,6,6,,,
+26,15,15,,,,,,
+27,6,6,6,6,6,,,
+28,12,6,6,6,,,,

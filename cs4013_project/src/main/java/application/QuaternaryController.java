@@ -3,13 +3,12 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.IOException;
 // import java.io.FileReader;
 import java.io.InputStreamReader;
-
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.io.IOException;
-import java.time.LocalDate;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
@@ -36,34 +35,39 @@ public class QuaternaryController {
     private final String LOGIN_STUDENT_ID = SecondaryController.studentNumber;
 
     // ^Get access to data
-    private String studentCSVID; //gpt
-    private String courseCSVID; //got
+    private String studentCSVID; // gpt
+    private String courseCSVID; // got
+
     private String studentLine;
     private String courseLine;
     private String moduleLine;
+
     private String[] studentParts;
     private String[] courseParts;
     private String[] moduleParts;
 
+    private ArrayList<String[]> allModuleInfo = new ArrayList<>();
+    private final int MODULE_LINE_COUNT = 25;
+
     // ~~ The Transcript ~~ //
     // ^Transcript Header
-    private String studentID; 
+    private String studentID;
     private String prefix;
     private String forename;
     private String surname;
     private String courseName;
-    private String courseCode; //got
+    private String courseCode; // got
     private String courseRoute;
 
     // ^Formatted Transcript
     // ^semesterHeader_n_QCA()
     private ArrayList<Double> semesterQCA;
-    private double totalQCA; //if/for loop
+    private double totalQCA; // if/for loop
     // ^semesterDetails()
-    private ArrayList<String> semesterYear; //if loop
-    private ArrayList<Integer> totalYears; //if loop
-    private int year; //cannot get
-    private int totalSemesters;  //got
+    private ArrayList<String> semesterYear; // if loop
+    private ArrayList<Integer> totalYears; // if loop
+    private int year; // cannot get
+    private int totalSemesters; // got
     // ^moduleInfo()
     private ArrayList<String> moduleIds;
     private ArrayList<String> moduleNames;
@@ -80,12 +84,15 @@ public class QuaternaryController {
     /**
      * Constructor
      */
-    
-    public QuaternaryController(){
+
+    public QuaternaryController() {
         checkStudentCSVId();
         checkCoursesCSVId();
-        // totalSemesters = Integer.parseInt(courseParts[3]);//TODO loop through courses to check which part[3]!!!!! 
+        getModuleDataArrayList();
+        // totalSemesters = Integer.parseInt(courseParts[3]);//TODO loop through courses
+        // to check which part[3]!!!!!
     }
+
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
@@ -114,7 +121,7 @@ public class QuaternaryController {
     // ~~ Splitting mess into smaller messes ~~
     @FXML
     public boolean checkStudentCSVId() { // Checks if student id exists and is the same as secondaryController
-        while (true){
+        while (true) {
             try {
                 System.out.println("\nStudent:");
                 while ((studentLine = studentReader.readLine()) != null) { // makes sure student.csv is not empty
@@ -132,7 +139,8 @@ public class QuaternaryController {
                         System.out.println("Course Code: " + courseCode); // ^ check after
                         System.out.println("\nStudent ID final: " + studentCSVID); // ^ check after
                         System.out.println("Student Line final: " + studentLine); // ^ check after
-                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// ^ check studentParts
+                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// ^ check
+                                                                                                   // studentParts
                         return false;
                     }
                 }
@@ -141,14 +149,14 @@ public class QuaternaryController {
                 e.printStackTrace();
                 return false;
             }
-            System.out.println("Hello Stanley, you have managed to escape to the back rooms in checkStudentCSVId");
+            System.out.println("Escaped try-catch loop in checkStudentCSVId");
             return false;
         }
     }
 
     @FXML
-    public boolean checkCoursesCSVId() { //Checks if course id exists and is the same as secondaryController
-        while (true){
+    public boolean checkCoursesCSVId() { // Checks if course id exists and is the same as secondaryController
+        while (true) {
             try {
                 System.out.println("\nCourse:");
                 while ((courseLine = courseReader.readLine()) != null) {
@@ -160,7 +168,8 @@ public class QuaternaryController {
                         System.out.println("\nCourse ID: " + courseCSVID); // ^ check after
                         System.out.println("Total Semesters: " + totalSemesters); // ^ check after
                         System.out.println("Course Line final: " + courseLine); // ^ check after
-                        System.out.println("CourseParts final: " + Arrays.toString(courseParts) + "\n");// ^ check courseParts
+                        System.out.println("CourseParts final: " + Arrays.toString(courseParts) + "\n");// ^ check
+                                                                                                        // courseParts
                         return false;
                     }
                 }
@@ -169,23 +178,52 @@ public class QuaternaryController {
                 e.printStackTrace();
                 return false;
             }
-            System.out.println("Hello Stanley, you have managed to escape to the back rooms in checkCoursesCSVId");
+            System.out.println("Escaped try-catch loop in checkCoursesCSVId");
             return false;
         }
     }
 
     @FXML
-    public boolean getSemsterYears() { //Checks if course id exists and is the same as secondaryController
-        while (true){
+    public void getModuleDataArrayList() {
+        try {
+            String line;
+            while ((line = moduleReader.readLine()) != null) {
+                if (line.contains(courseCode)) {// Found the courseCode
+                    for (int i = 0; i < MODULE_LINE_COUNT; i++) {
+                        // Gets all lines in "course"
+                        allModuleInfo.add(line.split(","));
+                        System.out.println("Module Line: " + line);
+                        line = moduleReader.readLine();
+                    }
+                }
+            }
+        } catch (IOException e) {
+            System.out.println("Problem with studentReader/ " + COURSES_FILE + ":\nIOException: " + e + "\n");
+            e.printStackTrace();
+        }
+        for (String[] array : allModuleInfo) {
+            // Iterate through the array
+            for (String element : array) {
+                if (element.equals("N/A")) {
+                    allModuleInfo.remove(element);
+                }
+                System.out.println("Element"+element);
+            }
+        }
+    }
+
+    @FXML
+    public boolean getSemsterYears() { // Checks if course id exists and is the same as secondaryController
+        while (true) {
             try {
                 while ((moduleLine = moduleReader.readLine()) != null) {
                     System.out.println("Module Line search: " + moduleLine);// ^ check iterations
                     moduleParts = moduleLine.split(",");
                     if (moduleParts.length >= 2 && moduleParts[1].equals(courseCode)) {
-                        courseCSVID = courseParts[1];
+                        System.out.println("CourseParts final: " + Arrays.toString(moduleParts) + "\n");// ^ check
+                                                                                                        // courseParts
                         System.out.println("Course ID final: " + courseCSVID); // ^ check after
-                        System.out.println("Course Line final: " + courseLine); // ^ check after
-                        System.out.println("CourseParts final: " + Arrays.toString(courseParts) + "\n");// ^ check courseParts
+                        System.out.println("Course Line final: " + moduleLine); // ^ check after
                         return false;
                     }
                 }
@@ -199,13 +237,11 @@ public class QuaternaryController {
         }
     }
 
-
-
     @FXML
     public void getModuleData(int currentSemester) {
         try {
             while ((moduleLine = moduleReader.readLine()) != null) {
-                //TODO Get module info into arrayList then get the current semesters data
+                // TODO Get module info into arrayList then get the current semesters data
 
                 // Determine the academic year
                 if (currentSemester == 1 || currentSemester == 2) {
@@ -224,25 +260,25 @@ public class QuaternaryController {
                     totalYears.add(i);
                 }
 
-                //TODO determining QCA based on year once QCA is done
+                // TODO determining QCA based on year once QCA is done
                 // Get QCA and divide it by the number of semesters except the first one
                 // if (year == 1) {
-                //     semesterQCA = -1.0;
+                // semesterQCA = -1.0;
                 // } else if (year == 2) {
-                //     semesterQCA = -2.0;
+                // semesterQCA = -2.0;
                 // } else if (year == 3) {
-                //     semesterQCA = -3.0;
+                // semesterQCA = -3.0;
                 // } else if (year == 4) {
-                //     semesterQCA = -4.0;
+                // semesterQCA = -4.0;
                 // } else if (year == 5) {
-                //     semesterQCA = -5.0;
+                // semesterQCA = -5.0;
                 // } else {
-                //     semesterQCA = -10.0;
+                // semesterQCA = -10.0;
                 // }
 
-                totalQCA = -1; //TODO do maths
+                totalQCA = -1; // TODO do maths
 
-                //TODO Get semester year String
+                // TODO Get semester year String
                 // if (year == 1) {
                 // semesterYear.add();
                 // } else if (year == 2) {
@@ -257,8 +293,6 @@ public class QuaternaryController {
                 // semesterYear = "0000/00";
                 // }
 
-
-
             }
         } catch (IOException e) {
             System.out.println("Problem with moduleReader/ " + MODULES_FILE + ":\nIOException: " + e + "\n");
@@ -268,17 +302,19 @@ public class QuaternaryController {
 
     @FXML
     public String theTranscript() {
-        if ((studentCSVID != null && courseCSVID != null) && (studentCSVID != courseCSVID) && LOGIN_STUDENT_ID != null) {
-            //TODO EVERYTHING HERE, AGHHHHHHHHHHHH
+        if ((studentCSVID != null && courseCSVID != null) && (studentCSVID != courseCSVID)
+                && LOGIN_STUDENT_ID != null) {
+            // TODO EVERYTHING HERE, AGHHHHHHHHHHHH
 
-            
-            //Build Transcript
-            fullTranscript.append(transcriptHeader(studentID, prefix, forename, surname, courseName, courseCode, courseRoute));
-            fullTranscript.append(getFormattedTranscript(semesterQCA, totalQCA, semesterYear, totalYears, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits));
+            // Build Transcript
+            fullTranscript.append(
+                    transcriptHeader(studentID, prefix, forename, surname, courseName, courseCode, courseRoute));
+            fullTranscript.append(getFormattedTranscript(semesterQCA, totalQCA, semesterYear, totalYears,
+                    totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits));
 
             return fullTranscript.toString(); // ^Final goal
         } else {
-            //?ERROR ERROR ERROR
+            // ?ERROR ERROR ERROR
             System.out.println("\nConditions not satisfied");
             System.out.println("LOGIN_STUDENT_ID: " + LOGIN_STUDENT_ID);
 
@@ -297,9 +333,7 @@ public class QuaternaryController {
         }
     }
 
-
-
-        //   ~~   Formatting   ~~   //
+    // ~~ Formatting ~~ //
     /**
      * transcriptHeader
      * 
@@ -354,7 +388,8 @@ public class QuaternaryController {
      * @return
      */
     @FXML
-    public String getFormattedTranscript(ArrayList<Double> semesterQCA, double totalQCA, ArrayList<String> semesterYear, ArrayList<Integer> totalYears,
+    public String getFormattedTranscript(ArrayList<Double> semesterQCA, double totalQCA, ArrayList<String> semesterYear,
+            ArrayList<Integer> totalYears,
             int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames,
             ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
         StringBuilder transcriptBuilder = new StringBuilder();
@@ -366,9 +401,8 @@ public class QuaternaryController {
 
         transcriptBuilder.append(blankLines()).append("\r\n");
 
-        
-        for (int index = 0; index < totalSemesters; index++) { //semesterQCA = ArrayList<Double
-            if (semesterQCA.size() > 0) {                
+        for (int index = 0; index < totalSemesters; index++) { // semesterQCA = ArrayList<Double
+            if (semesterQCA.size() > 0) {
                 transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA, totalQCA)).append("\r\n");
             }
         }
@@ -403,7 +437,8 @@ public class QuaternaryController {
      * @return
      */
     @FXML
-    private static String semesterDetails(ArrayList<String> semesterYear, ArrayList<Integer> totalYears, int totalSemesters) {
+    private static String semesterDetails(ArrayList<String> semesterYear, ArrayList<Integer> totalYears,
+            int totalSemesters) {
         String yearString = "Year " + totalYears;
         String totalSemestersString = "Sem " + totalSemesters;
         String formatString = "|%-30s %-" + Math.max(18, String.valueOf(totalYears).length()) + "s %-"
