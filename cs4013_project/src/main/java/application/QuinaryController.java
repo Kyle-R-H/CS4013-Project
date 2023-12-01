@@ -15,11 +15,17 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
 public class QuinaryController {
+
+    @FXML
+    private void switchToPrimary() throws IOException {
+        App.setRoot("primary");
+    }
 
     @FXML
     private HBox quinaryHBox;
@@ -34,19 +40,12 @@ public class QuinaryController {
     private ComboBox<String> semesterComboBox;
 
     @FXML
-    private TextField zero1TextField;
+    private ComboBox<String> moduleComboBox;
+
 
     @FXML
-    private TextField zero2TextField;
+    private TextField grade;
 
-    @FXML
-    private TextField zero3TextField;
-
-    @FXML
-    private TextField zero4TextField;
-
-    @FXML
-    private TextField zero5TextField;
 
     private ObservableList<String> uniqueCourses;
     private ObservableList<String> uniqueStudents;
@@ -67,7 +66,16 @@ public class QuinaryController {
         courseComboBox.setItems(uniqueCourses);
         studentComboBox.setItems(uniqueStudents);
         semesterComboBox.setItems(uniqueSemesters);
+
+        // Use ChangeListener for semesterComboBox
+        semesterComboBox.valueProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null && !newValue.equals(oldValue)) {
+                updateModulesForSemester();
+            }
+        });
     }
+
+
 
     @FXML
     private void updateStudentsForCourse() {
@@ -145,14 +153,90 @@ public class QuinaryController {
     }
 
     @FXML
+    private void updateModulesForSemester() {
+        System.out.println("Updating modules for semester...");
+    
+        // Get the selected course and semester from the ComboBoxes
+        String selectedCourse = courseComboBox.getValue();
+        String selectedSemester = semesterComboBox.getValue();
+    
+        // Save the current selection
+        String currentSelection = moduleComboBox.getValue();
+    
+        // Clear existing items in moduleComboBox
+        moduleComboBox.getItems().clear();
+    
+        if (selectedCourse != null && !selectedCourse.isEmpty() && selectedSemester != null && !selectedSemester.isEmpty()) {
+            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src/main/resources/application/modules.csv"))) {
+                String line;
+                boolean isInSelectedCourse = false;
+    
+                while ((line = reader.readLine()) != null) {
+                    String[] parts = line.split(",");
+    
+                    if (parts.length >= 1 && parts[0].equals(selectedCourse)) {
+                        // Found the selected course
+                        isInSelectedCourse = true;
+                    } else if (isInSelectedCourse && parts.length > 1 && parts[0].matches("\\d+")) {
+                        // Found a line with module information for the selected course
+                        int semesterNumber = Integer.parseInt(parts[0]);
+                        if (semesterNumber == Integer.parseInt(selectedSemester)) {
+                            // Matched the selected semester
+                            // Check if there are modules for this semester
+                            if (parts.length > 1) {
+                                List<String> moduleList = Arrays.asList(Arrays.copyOfRange(parts, 1, parts.length));
+                            
+                                // Add the items to the ComboBox without clearing it
+                                moduleComboBox.getItems().addAll(moduleList);
+                            
+                                if (!moduleList.isEmpty()) {
+                                    // Ensure the selected index is within bounds
+                                    int selectedIndex = moduleComboBox.getItems().indexOf(currentSelection);
+                                    if (selectedIndex >= moduleList.size() || selectedIndex < 0) {
+                                        moduleComboBox.getSelectionModel().select(0);
+                                    } else {
+                                        moduleComboBox.getSelectionModel().select(currentSelection);
+                                    }
+                                } else {
+                                    System.out.println("No modules found for the selected semester.");
+                            
+                                    // Clear the selection and add "Select Module" option
+                                    moduleComboBox.getSelectionModel().clearSelection();
+                                    moduleComboBox.getItems().add("Select Module");
+                                    moduleComboBox.getSelectionModel().select("Select Module");
+                                }
+                            } else {
+                                System.out.println("No modules found for the selected semester.");
+                            
+                                // Clear the selection and add "Select Module" option
+                                moduleComboBox.getSelectionModel().clearSelection();
+                                moduleComboBox.getItems().add("Select Module");
+                                moduleComboBox.getSelectionModel().select("Select Module");
+                            }
+                            
+                            break; // Break out of the loop after adding modules for the selected semester
+                        }
+                    } else if (isInSelectedCourse && parts.length >= 1 && parts[0].isEmpty()) {
+                        // Reached the end of module information for the selected course
+                        break;
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } else {
+            System.out.println("Invalid selection: course or semester is null or empty.");
+        }
+    
+        //System.out.println("Update completed.");
+    }
+    
+
+    @FXML
     private void saveChanges() {
         // Implement the logic to save changes to the CSV file
         // Use the values from the ComboBoxes and TextFields to update the corresponding CSV fields
         // ... (your existing saveChanges() logic)
     }
 
-    @FXML
-    private void switchToPrimary() throws IOException {
-        App.setRoot("primary");
-    }
 }

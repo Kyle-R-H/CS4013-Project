@@ -29,8 +29,8 @@
       <!-- Small TextField and Save Button on the left -->
       <VBox spacing="5.0">
          <TextField fx:id="textField1" promptText="Grade" />
-         <ComboBox fx:id="moduleComboBox" promptText="Select Module" />
-         <Button text="Save" onAction="#saveChanges"/>
+         <ComboBox fx:id="moduleComboBox" promptText="Select Module" onShowing="#updateModulesForSemester"/>
+         <Button text="Save" />
       </VBox>
       
       <!-- Uneditable TextArea on the right -->
