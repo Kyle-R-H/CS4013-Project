@@ -150,7 +150,7 @@ public class QuinaryController {
         uniqueCourses.addAll(coursesSet);
     }
 
-    private String findStudentValues(String selectedCourse) {
+    private String findStudentValues(String selectedCourse, String selectedSemester) {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Courses.csv"))) {
             String line;
             boolean isInSelectedCourse = false;
@@ -158,30 +158,45 @@ public class QuinaryController {
             while ((line = reader.readLine()) != null) {
                 String[] parts = line.split(",");
     
-                if (parts.length >= 1 && parts[0].equals(selectedCourse)) {
+                if (isInSelectedCourse && parts.length > 1 && parts[0].matches("\\d+")) {
+                    // Found a line with student information for the selected course
+                    int semesterNumber = Integer.parseInt(parts[0]);
+                    if (semesterNumber == Integer.parseInt(selectedSemester)) {
+                        // Matched the selected semester
+                        StringBuilder studentValues = new StringBuilder("");
+    
+                        // Append values for each semester
+                        for (int i = 1; i < parts.length; i++) {
+                            studentValues.append("Module ").append(i).append(": ").append(parts[i].trim()).append("\n");
+                        }
+    
+                        return studentValues.toString();
+                    }
+                } else if (parts.length >= 1 && parts[0].equals(selectedCourse)) {
                     // Found the selected course
                     isInSelectedCourse = true;
-                } else if (isInSelectedCourse && parts.length > 1 && parts[1].matches("\\d+")) {
-                    // Found a line with student information for the selected course
-                    StringBuilder studentValues = new StringBuilder("");
-    
-                    // Append values for each semester
-                    for (int i = 1; i < parts.length - 1; i++) {
-                        studentValues.append("Module ").append(i).append(": ").append(parts[i].trim()).append("\n");
-                    }
-    
-                    return studentValues.toString();
                 } else if (isInSelectedCourse && parts.length >= 1 && parts[0].isEmpty()) {
                     // Reached the end of student information for the selected course
-                    break;
+                    isInSelectedCourse = false;
                 }
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     
-        return "Student values not found for the selected course.";
+        return "Student values not found for the selected course and semester.";
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 
     @FXML
@@ -226,7 +241,7 @@ public class QuinaryController {
                                 uneditableTextArea.setText(modulesText.toString());
 
                                 // Find and print the corresponding student values
-                                String studentValues = findStudentValues(selectedCourse);
+                                String studentValues = findStudentValues(selectedCourse,selectedSemester);
                                 uneditableTextArea.appendText("Student Values for Semester " + selectedSemester + ":\n");
                                 uneditableTextArea.appendText(studentValues);
 
