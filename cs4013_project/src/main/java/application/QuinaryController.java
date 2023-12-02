@@ -186,18 +186,6 @@ public class QuinaryController {
     
         return "Student values not found for the selected course and semester.";
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
 
     @FXML
     private void updateModulesForSemester() {
@@ -272,10 +260,6 @@ public class QuinaryController {
             System.out.println("Invalid selection: course or semester is null or empty.");
         }
     }
-
-
-
-    
     
     @FXML
     private void saveChanges() {
