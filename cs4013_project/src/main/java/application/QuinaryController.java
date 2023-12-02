@@ -152,8 +152,6 @@ public class QuinaryController {
 
     @FXML
     private void updateModulesForSemester() {
-        System.out.println("Updating modules for semester...");
-
         // Get the selected course and semester from the ComboBoxes
         String selectedCourse = courseComboBox.getValue();
         String selectedSemester = semesterComboBox.getValue();
@@ -232,8 +230,6 @@ public class QuinaryController {
         } else {
             System.out.println("Invalid selection: course or semester is null or empty.");
         }
-
-        //System.out.println("Update completed.");
     }
 
     
