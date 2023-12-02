@@ -5,6 +5,7 @@ package application;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.collections.FXCollections;
@@ -45,6 +46,10 @@ public class QuinaryController {
 
     @FXML
     private TextField grade;
+
+    @FXML
+    private TextArea uneditableTextArea;
+
 
 
     private ObservableList<String> uniqueCourses;
@@ -148,25 +153,25 @@ public class QuinaryController {
     @FXML
     private void updateModulesForSemester() {
         System.out.println("Updating modules for semester...");
-    
+
         // Get the selected course and semester from the ComboBoxes
         String selectedCourse = courseComboBox.getValue();
         String selectedSemester = semesterComboBox.getValue();
-    
+
         // Save the current selection
         String currentSelection = moduleComboBox.getValue();
-    
+
         // Clear existing items in moduleComboBox
         moduleComboBox.getItems().clear();
-    
+
         if (selectedCourse != null && !selectedCourse.isEmpty() && selectedSemester != null && !selectedSemester.isEmpty()) {
             try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Modules.csv"))) {
                 String line;
                 boolean isInSelectedCourse = false;
-    
+
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
-    
+
                     if (parts.length >= 1 && parts[0].equals(selectedCourse)) {
                         // Found the selected course
                         isInSelectedCourse = true;
@@ -178,10 +183,17 @@ public class QuinaryController {
                             // Check if there are modules for this semester
                             if (parts.length > 1) {
                                 List<String> moduleList = Arrays.asList(Arrays.copyOfRange(parts, 1, parts.length));
-                            
+
                                 // Add the items to the ComboBox without clearing it
                                 moduleComboBox.getItems().addAll(moduleList);
-                            
+
+                                // Set the modules text in uneditableTextArea
+                                StringBuilder modulesText = new StringBuilder();
+                                for (String module : moduleList) {
+                                    modulesText.append(module).append("\n");
+                                }
+                                uneditableTextArea.setText(modulesText.toString());
+
                                 if (!moduleList.isEmpty()) {
                                     // Ensure the selected index is within bounds
                                     int selectedIndex = moduleComboBox.getItems().indexOf(currentSelection);
@@ -192,7 +204,7 @@ public class QuinaryController {
                                     }
                                 } else {
                                     System.out.println("No modules found for the selected semester.");
-                            
+
                                     // Clear the selection and add "Select Module" option
                                     moduleComboBox.getSelectionModel().clearSelection();
                                     moduleComboBox.getItems().add("Select Module");
@@ -200,13 +212,13 @@ public class QuinaryController {
                                 }
                             } else {
                                 System.out.println("No modules found for the selected semester.");
-                            
+
                                 // Clear the selection and add "Select Module" option
                                 moduleComboBox.getSelectionModel().clearSelection();
                                 moduleComboBox.getItems().add("Select Module");
                                 moduleComboBox.getSelectionModel().select("Select Module");
                             }
-                            
+
                             break; // Break out of the loop after adding modules for the selected semester
                         }
                     } else if (isInSelectedCourse && parts.length >= 1 && parts[0].isEmpty()) {
@@ -220,9 +232,10 @@ public class QuinaryController {
         } else {
             System.out.println("Invalid selection: course or semester is null or empty.");
         }
-    
+
         //System.out.println("Update completed.");
     }
+
     
 
     @FXML

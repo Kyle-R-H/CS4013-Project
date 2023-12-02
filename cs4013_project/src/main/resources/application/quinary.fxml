@@ -34,7 +34,7 @@
       </VBox>
       
       <!-- Uneditable TextArea on the right -->
-      <TextArea fx:id="uneditableTextArea" promptText="Uneditable Text Area" editable="false"/>
+   <TextArea fx:id="uneditableTextArea" promptText="Uneditable Text Area" editable="false"/>
    </HBox>
 
    <padding>
