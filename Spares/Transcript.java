@@ -18,7 +18,7 @@ public class Transcript {
 
         );
     }
-    public void printFormattedTranscript(double semesterQCA, double totalQCA, String courseYearString, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<Character> registrationTypes, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
+    public void printFormattedTranscript(double semesterQCA, double totalQCA, String courseYearString, int year, int totalSemesters, ArrayList<String> moduleIds, ArrayList<String> moduleNames, ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
         System.out.println(
             theLine() + "\r\n" +
             semesterDetails(courseYearString, year, totalSemesters) + "\r\n" +
@@ -26,7 +26,7 @@ public class Transcript {
             semesterHeader_n_QCA(semesterQCA, totalQCA) + "\r\n" +
             blankLines());
         for (int i = 0; i < moduleIds.size(); i++) {
-            System.out.print(moduleInfo(moduleIds.get(i), moduleNames.get(i), registrationTypes.get(i), gradeLetters.get(i), credits.get(i)) + "\r\n");
+            System.out.print(moduleInfo(moduleIds.get(i), moduleNames.get(i), gradeLetters.get(i), credits.get(i)) + "\r\n");
         }
         System.out.println(blankLines() + "\r\n" + theLine());
     }
@@ -42,9 +42,13 @@ public class Transcript {
         return String.format(formatString, courseYearString, yearString ,totalSemestersString,"", "", "Session To-Date", "");
     }
     
-    private static String moduleInfo(String moduleId, String moduleName, char registrationType, String gradeLetter, int credits){
-        String formaString = "|%s%-"+ Math.max(13, String.valueOf(moduleId).length()) +"s%-"+ Math.max(50, String.valueOf(moduleName).length()) +"s %s %-8s %-"+ Math.max(9, String.valueOf(gradeLetter).length()) +"s %-"+ Math.max(6, String.valueOf(credits).length()) +"s |%27s|";
-        return String.format(formaString,  "", moduleId, moduleName, registrationType, "", gradeLetter, credits, "");
+    private static String moduleInfo(String moduleId, String moduleName, String gradeLetter,
+            int credits) {
+        String formaString = "|%s%-" + Math.max(13, String.valueOf(moduleId).length()) + "s%-"
+                + Math.max(50, String.valueOf(moduleName).length()) + "s %-10s %-"
+                + Math.max(9, String.valueOf(gradeLetter).length()) + "s %-"
+                + Math.max(6, String.valueOf(credits).length()) + "s |%27s|";
+        return String.format(formaString, "", moduleId, moduleName, "", gradeLetter, credits, "");
     }
     
     private static String blankLines() {
@@ -52,8 +56,8 @@ public class Transcript {
     }
 
     public static String semesterHeader_n_QCA(double semesterQCA, double totalQCA) {
-        String formatString = "|%-12s %-50s %-9s %-8s %-9s|%-5s%10.2f%9.2f   |";
-        return String.format(formatString, "Module", "Title", "Regn", "Grade", "Credits", "QCA", semesterQCA, totalQCA);
+        String formatString = "|%-12s %-60s %-8s %-9s|%-5s%10.2f%9.2f   |";
+        return String.format(formatString, "Module", "Title", "Grade", "Credits", "QCA", semesterQCA, totalQCA);
     }
 
 
@@ -83,43 +87,37 @@ public class Transcript {
 
         ArrayList<String> moduleIds = new ArrayList<>();
         ArrayList<String> moduleNames = new ArrayList<>();
-        ArrayList<Character> registrationTypes = new ArrayList<>();
         ArrayList<String> gradeLetters = new ArrayList<>();
         ArrayList<Integer> credits = new ArrayList<>();
 
         moduleIds.add("CS4012");
         moduleNames.add("REPRESENTATION AND MODELLING");
-        registrationTypes.add('N');
         gradeLetters.add("B1");
         credits.add(6);
 
         moduleIds.add("CS4141");
         moduleNames.add("INTRODUCTION TO PROGRAMMING");
-        registrationTypes.add('N');
         gradeLetters.add("A2");
         credits.add(6);
 
         moduleIds.add("CS4221");
         moduleNames.add("FOUNDATIONS OF COMPUTER SCIENCE 1");
-        registrationTypes.add('N');
         gradeLetters.add("A2");
         credits.add(6);
 
         moduleIds.add("ET4011");
         moduleNames.add("FUNDAMENTALS OF COMPUTER ORGANISATION");
-        registrationTypes.add('N');
         gradeLetters.add("A1");
         credits.add(6);
 
         moduleIds.add("MS4111");
         moduleNames.add("DISCRETE MATHEMATICS 1");
-        registrationTypes.add('N');
         gradeLetters.add("C1");
         credits.add(6);
 
         Transcript transcript = new Transcript();
         transcript.transcriptHeader(studentID, "Mr", "Ky3987weuhle", "Helwiwfuhiflstrom", "Computer Science","LM121", "CS");
-        transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
-        transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, registrationTypes, gradeLetters, credits);
+        transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, gradeLetters, credits);
+        transcript.printFormattedTranscript(semesterQCA, totalQCA, courseYearString, year, totalSemesters, moduleIds, moduleNames, gradeLetters, credits);
     }
 }
