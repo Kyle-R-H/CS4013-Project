@@ -60,7 +60,7 @@ public class QuinaryController {
         uniqueSemesters = FXCollections.observableArrayList();
 
         // Load data from Courses.csv
-        loadDataFromGradesCSV();
+        loadDataFromCoursesCSV();
 
         // Populate ComboBoxes with unique values
         courseComboBox.setItems(uniqueCourses);
@@ -85,7 +85,7 @@ public class QuinaryController {
         String selectedCourse = courseComboBox.getValue();
 
         if (selectedCourse != null && !selectedCourse.isEmpty()) {
-            try (BufferedReader reader = Files.newBufferedReader(Paths.get("cs4013_project\\src\\main\\resources\\application\\Courses.csv"))) {
+            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Courses.csv"))) {
                 String line;                
                 while ((line = reader.readLine()) != null) {
                     String[] parts = line.split(",");
@@ -122,11 +122,11 @@ public class QuinaryController {
         }
     }
 
-    private void loadDataFromGradesCSV() {
+    private void loadDataFromCoursesCSV() {
         Set<String> coursesSet = new HashSet<>();
     
         try {
-            Path filePath = Paths.get("cs4013_project\\src\\main\\resources\\application\\Courses.csv");
+            Path filePath = Paths.get("src\\main\\resources\\application\\Courses.csv");
             List<String> lines = Files.readAllLines(filePath);
     
             for (String line : lines) {
@@ -160,7 +160,7 @@ public class QuinaryController {
         moduleComboBox.getItems().clear();
     
         if (selectedCourse != null && !selectedCourse.isEmpty() && selectedSemester != null && !selectedSemester.isEmpty()) {
-            try (BufferedReader reader = Files.newBufferedReader(Paths.get("cs4013_project\\src\\main\\resources\\application\\Modules.csv"))) {
+            try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Modules.csv"))) {
                 String line;
                 boolean isInSelectedCourse = false;
     
