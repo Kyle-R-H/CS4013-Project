@@ -49,6 +49,7 @@ public class QuaternaryController {
     private ArrayList<String[]> allModuleCodes = new ArrayList<>();
     private ArrayList<String[]> allModuleNames = new ArrayList<>();
     private ArrayList<String[]> allModuleCredits = new ArrayList<>();
+    private ArrayList<String[]> allModuleGrades = new ArrayList<>();
 
     // ~~ The Transcript ~~ //
     // ^Transcript Header
@@ -62,6 +63,7 @@ public class QuaternaryController {
 
     // ^Formatted Transcript
     // ^semesterHeader_n_QCA()
+    private int currentSemester; //got
     private ArrayList<Double> semesterQCA; // TODO get from course.csv
     private double totalQCA; // if/for loop
     // ^semesterDetails()
@@ -69,6 +71,8 @@ public class QuaternaryController {
     private ArrayList<Integer> totalYears; // if loop
     private int year; // cannot get
     private int totalSemesters; // got
+    private ArrayList<Integer> numOfModules; // got
+
     // ^moduleInfo()
     // TODO all arraylists this
     private ArrayList<String> moduleIds;
@@ -95,6 +99,7 @@ public class QuaternaryController {
         moduleNames = new ArrayList<>();
         gradeLetters = new ArrayList<>();
         credits = new ArrayList<>();
+        numOfModules = new ArrayList<>();
 
         // get info
         getStudentInfoCSV();
@@ -149,7 +154,8 @@ public class QuaternaryController {
                         System.out.println("Course Code: " + courseCode); // ^ check after
                         System.out.println("\nStudent ID final: " + studentCSVID); // ^ check after
                         System.out.println("Student Line final: " + studentLine); // ^ check after
-                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// ^ check studentParts
+                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// ^ check
+                                                                                                   // studentParts
                         return false;
                     }
                 }
@@ -172,23 +178,24 @@ public class QuaternaryController {
                     courseParts = courseLine.split(",");
                     if (courseParts.length >= 2 && courseParts[1].equals(LOGIN_STUDENT_ID)) {
                         courseCSVID = courseParts[1];
-                        totalSemesters = Integer.parseInt(courseParts[2]);
 
-                        // for (int i = 6; i < courseParts.length; i++) {
-                        //     courseLine = courseReader.readLine();
-                        //     courseParts = courseLine.split(",");
-                        //     double qcaValue = Double.parseDouble(courseParts[i]);
-                        //     semesterQCA.add(qcaValue);
-                        // }
+                        if (!courseParts[2].isEmpty()) {
+                            totalSemesters = Integer.parseInt(courseParts[2]);
+                        } else {
+                            totalSemesters = 10; // default value
+                        }
+
                         System.out.println("semesterQCA: " + semesterQCA);
                         System.out.println("\nCourse ID: " + courseCSVID); // ^ check after
                         System.out.println("Total Semesters: " + totalSemesters); // ^ check after
                         System.out.println("Course Line final: " + courseLine); // ^ check after
                         System.out.println("CourseParts final: " + Arrays.toString(courseParts));// ^check CourseParts
-                        
+
                         return false;
-                    }else if(courseParts.length >= 6 && Integer.parseInt(courseParts[0]) >= 1 && Integer.parseInt(courseParts[0]) <= 8){
-                        semesterQCA.add(Double.parseDouble(courseParts[6]));
+                    } else if (courseParts.length >= 8 && Integer.parseInt(courseParts[0]) >= 1
+                        && Integer.parseInt(courseParts[0]) <= 8) {
+                        allModuleGrades.add(courseParts);
+                        semesterQCA.add(Double.parseDouble(courseParts[9]));
                     }
                 }
             } catch (IOException e) {
@@ -262,7 +269,17 @@ public class QuaternaryController {
                     for (String[] credit : allModuleCredits) {
                         System.out.println("Credits: " + Arrays.toString(credit));
                     }
-
+                    System.out.println("\nModule Grades:");
+                    for (String[] grade : allModuleGrades) {
+                        System.out.println("Grades: " + Arrays.toString(grade));
+                    }
+                    for (String[] num : allModuleCredits) {
+                        numOfModules.add(num.length);
+                    }
+                    System.out.println("Number of modules:");
+                    for (Integer value : numOfModules) {
+                        System.out.print(value + "\ng");
+                    }
                     break;
                 }
             }
@@ -271,39 +288,15 @@ public class QuaternaryController {
             e.printStackTrace();
         }
         // ^Year
-        if (totalSemesters == 7 || totalSemesters == 8) {
+        //checks how many years there are and sets the total years
+        if (totalSemesters == 7 || totalSemesters == 8) { 
             year = 4;
         } else if (totalSemesters == 9 || totalSemesters == 10) {
             year = 5;
         }
         for (int i = 0; i < year; i++) {
-            totalYears.add(i);
-        }
-    }
-
-    public void getEachSemesterInfo() {
-        try {
-            while ((moduleLine = moduleReader.readLine()) != null) {
-                // TODO determining QCA based on year
-                if (year == 1) {
-                    totalQCA  = (semesterQCA.get(0) + semesterQCA.get(1))/2;
-                } else if (year == 2) {
-                    totalQCA  = (semesterQCA.get(2) + semesterQCA.get(3))/2;
-                } else if (year == 3) {
-                    totalQCA  = (semesterQCA.get(2) + semesterQCA.get(3)+ semesterQCA.get(4)+ semesterQCA.get(5))/4;
-                } else if (year == 4) {
-                    totalQCA  = (semesterQCA.get(2) + semesterQCA.get(3)+ semesterQCA.get(4)+ semesterQCA.get(5)+ semesterQCA.get(6)+ semesterQCA.get(7))/6;
-                } else if (year == 5) {
-                    totalQCA  = (semesterQCA.get(2) + semesterQCA.get(3)+ semesterQCA.get(4)+ semesterQCA.get(5)+ semesterQCA.get(6)+ semesterQCA.get(7)+ semesterQCA.get(8)+ semesterQCA.get(9))/8;
-                } else {
-                    totalQCA = -1;
-                }
-
-
-            }
-        } catch (IOException e) {
-            System.out.println("Problem with moduleReader/ " + MODULES_FILE + ":\nIOException: " + e + "\n");
-            e.printStackTrace();
+            totalYears.add(1 + i);
+            totalYears.add(1 + i);
         }
     }
 
@@ -311,7 +304,7 @@ public class QuaternaryController {
     public String theTranscript() {
         if ((studentCSVID != null && courseCSVID != null) && (studentCSVID != courseCSVID)
                 && LOGIN_STUDENT_ID != null) {
-                    studentID = LOGIN_STUDENT_ID;
+            studentID = LOGIN_STUDENT_ID;
             if (studentID != null && forename != null && surname != null && courseName != null && courseCode != null
                     && courseRoute != null && semesterQCA != null && semesterYears != null && totalYears != null
                     && moduleIds != null && moduleNames != null && gradeLetters != null && credits != null) {
@@ -410,35 +403,116 @@ public class QuaternaryController {
             ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
         StringBuilder transcriptBuilder = new StringBuilder();
         transcriptBuilder.append("\n").append(theLine()).append("\r\n");
+    
+            if (currentSemester == 1 || currentSemester == 2) {
+                totalQCA = (semesterQCA.get(0) + semesterQCA.get(1)) / 2;
+            } else if (currentSemester == 3 || currentSemester == 4) {
+                totalQCA = (semesterQCA.get(2) + semesterQCA.get(3)) / 2;
+            } else if (currentSemester == 5 || currentSemester == 6) {
+                totalQCA = (semesterQCA.get(2) + semesterQCA.get(3) + semesterQCA.get(4) + semesterQCA.get(5)) / 4;
+            } else if (currentSemester == 7 || currentSemester == 8) {
+                totalQCA = (semesterQCA.get(2) + semesterQCA.get(3) + semesterQCA.get(4) + semesterQCA.get(5)
+                        + semesterQCA.get(6) + semesterQCA.get(7)) / 6;
+            } else if (currentSemester == 9 || currentSemester == 10) {
+                totalQCA = (semesterQCA.get(2) + semesterQCA.get(3) + semesterQCA.get(4) + semesterQCA.get(5)
+                        + semesterQCA.get(6) + semesterQCA.get(7) + semesterQCA.get(8) + semesterQCA.get(9)) / 8;
+            } else {
+                totalQCA = -1;
+            }
 
         for (int j = 0; j < totalSemesters; j++) {
-            // Check if semesterQCA has elements
-            if (!semesterQCA.isEmpty() && !totalYears.isEmpty() && j < totalYears.size()) {
-                transcriptBuilder.append(semesterDetails(semesterYears.get(j), totalYears.get(j), totalSemesters))
-                        .append("\r\n");
+            System.out.println("Loop Iteration: " + (j + 1));
+            currentSemester = j + 1; // start semesters from semester 1 //TODO
+
+            transcriptBuilder.append(semesterDetails(semesterYears.get(j), totalYears.get(j), currentSemester))
+                    .append("\r\n");
     
-                // Check if semesterQCA has elements
-                if (!semesterQCA.isEmpty() && j < semesterQCA.size()) {
-                    // Print header once per semester
-                    transcriptBuilder.append(blankLines()).append("\r\n");
-                    transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(j), totalQCA)).append("\r\n");
+            // Print header once per semester
+            transcriptBuilder.append(blankLines()).append("\r\n");
+            transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(j), totalQCA)).append("\r\n");
+    
+
+            // for (int rowCount = 0; rowCount < array.length; rowCount++) {
+                
+            // }
+            for (String[] code : allModuleCodes) {//each row of the full array of moduleCodes
+                for (int k = 0; k < code.length; k++) {
+                    moduleIds.add(code[k]);                    
                 }
+            }
+
+            for (String[] names : allModuleNames) {//each row of the full array of moduleNames
+                for (int k = 0; k < names.length; k++) {
+                    moduleIds.add(names[k]);                    
+                }
+            }
+
+            for (String[] credit : allModuleCredits) {//each row of the full array of moduleCredits
+                for (int k = 0; k < credit.length; k++) {
+                    moduleIds.add(credit[k]);                    
+                }
+            }
+            for (String[] grade : allModuleCredits) {//each row of the full array of moduleGrades
+                for (int k = 0; k < grade.length; k++) {
+                    moduleIds.add(grade[k]);                    
+                }
+            }
+
+            for (int index = 0; index < numOfModules.size(); index++) {
+                
+            }
+            // transcriptBuilder.append(moduleInfo(moduleId, moduleName, gradeLetter, credit)).append("\r\n");
+            transcriptBuilder.append(moduleInfo("N/A", "N/A", "N/A", -0)).append("\r\n");
+            transcriptBuilder.append(theLine()).append("\r\n");
+        }
     
-                // Print modules
-                for (int i = 0; i < moduleIds.size(); i++) {
-                    // Check if moduleIds, moduleNames, gradeLetters, and credits have elements
-                    if (!moduleIds.isEmpty() && !moduleNames.isEmpty() && !gradeLetters.isEmpty() && !credits.isEmpty()
-                            && i < moduleIds.size() && i < moduleNames.size() && i < gradeLetters.size() && i < credits.size()) {
-                        transcriptBuilder.append(moduleInfo(moduleIds.get(i), moduleNames.get(i),
-                                gradeLetters.get(i), credits.get(i))).append("\r\n");
-                    }
+        return transcriptBuilder.toString();
+    }
+
+    /*@FXML //TODO add back in the !null stuff
+public String getFormattedTranscript(ArrayList<Double> semesterQCA, double totalQCA,
+        ArrayList<String> semesterYears, ArrayList<Integer> totalYears, int totalSemesters,
+        ArrayList<String> moduleIds, ArrayList<String> moduleNames,
+        ArrayList<String> gradeLetters, ArrayList<Integer> credits) {
+    StringBuilder transcriptBuilder = new StringBuilder();
+    transcriptBuilder.append("\n").append(theLine()).append("\r\n");
+
+    for (int j = 0; j < totalSemesters; j++) {
+        System.out.println("Loop Iteration: " + j);
+        // Check if semesterQCA has elements
+        if (!semesterQCA.isEmpty() && !totalYears.isEmpty() && j < totalYears.size()) {
+            System.out.println("Semester: " + semesterYears.get(j) + " - Year: " + totalYears.get(j));
+
+            int currentSemester = j + 1; // Semesters start from 1
+
+            transcriptBuilder.append(semesterDetails(semesterYears.get(j), totalYears.get(j), currentSemester))
+                    .append("\r\n");
+
+            // Check if semesterQCA has elements
+            if (!semesterQCA.isEmpty() && j < semesterQCA.size()) {
+                // Print header once per semester
+                transcriptBuilder.append(blankLines()).append("\r\n");
+                transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(j), totalQCA)).append("\r\n");
+            }
+
+            // Print modules
+            for (int i = 0; i < moduleIds.size(); i++) {
+                // Check if moduleIds, moduleNames, gradeLetters, and credits have elements
+                if (!moduleIds.isEmpty() && !moduleNames.isEmpty() && !gradeLetters.isEmpty() && !credits.isEmpty()
+                        && i < moduleIds.size() && i < moduleNames.size() && i < gradeLetters.size() && i < credits.size()) {
+                    transcriptBuilder.append(moduleInfo(moduleIds.get(i), moduleNames.get(i),
+                            gradeLetters.get(i), credits.get(i))).append("\r\n");
+                } else {
+                    transcriptBuilder.append(moduleInfo("plzfix", "Nothin", "N/A", -1)).append("\r\n");
                 }
             }
         }
-    
-        transcriptBuilder.append(blankLines()).append("\r\n").append(theLine());
-        return transcriptBuilder.toString();
     }
+
+    transcriptBuilder.append(blankLines()).append("\r\n").append(theLine());
+    return transcriptBuilder.toString();
+}
+*/
 
     /**
      * 
