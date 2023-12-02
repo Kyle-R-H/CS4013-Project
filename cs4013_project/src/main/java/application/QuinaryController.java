@@ -150,17 +150,51 @@ public class QuinaryController {
         uniqueCourses.addAll(coursesSet);
     }
 
+    private String findStudentValues(String selectedCourse) {
+        try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Courses.csv"))) {
+            String line;
+            boolean isInSelectedCourse = false;
+    
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split(",");
+    
+                if (parts.length >= 1 && parts[0].equals(selectedCourse)) {
+                    // Found the selected course
+                    isInSelectedCourse = true;
+                } else if (isInSelectedCourse && parts.length > 1 && parts[1].matches("\\d+")) {
+                    // Found a line with student information for the selected course
+                    StringBuilder studentValues = new StringBuilder("");
+    
+                    // Append values for each semester
+                    for (int i = 1; i < parts.length; i++) {
+                        studentValues.append("Module ").append(i - 1).append(": ").append(parts[i].trim()).append("\n");
+                    }
+    
+                    return studentValues.toString();
+                } else if (isInSelectedCourse && parts.length >= 1 && parts[0].isEmpty()) {
+                    // Reached the end of student information for the selected course
+                    break;
+                }
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    
+        return "Student values not found for the selected course.";
+    }
+    
+
     @FXML
     private void updateModulesForSemester() {
+        System.out.println("Updating modules for semester...");
+
         // Get the selected course and semester from the ComboBoxes
         String selectedCourse = courseComboBox.getValue();
         String selectedSemester = semesterComboBox.getValue();
 
-        // Save the current selection
-        String currentSelection = moduleComboBox.getValue();
-
-        // Clear existing items in moduleComboBox
+        // Clear existing items in moduleComboBox and uneditableTextArea
         moduleComboBox.getItems().clear();
+        uneditableTextArea.clear();
 
         if (selectedCourse != null && !selectedCourse.isEmpty() && selectedSemester != null && !selectedSemester.isEmpty()) {
             try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Modules.csv"))) {
@@ -192,22 +226,12 @@ public class QuinaryController {
                                 }
                                 uneditableTextArea.setText(modulesText.toString());
 
-                                if (!moduleList.isEmpty()) {
-                                    // Ensure the selected index is within bounds
-                                    int selectedIndex = moduleComboBox.getItems().indexOf(currentSelection);
-                                    if (selectedIndex >= moduleList.size() || selectedIndex < 0) {
-                                        moduleComboBox.getSelectionModel().select(0);
-                                    } else {
-                                        moduleComboBox.getSelectionModel().select(currentSelection);
-                                    }
-                                } else {
-                                    System.out.println("No modules found for the selected semester.");
+                                // Find and print the corresponding student values
+                                String studentValues = findStudentValues(selectedCourse);
+                                uneditableTextArea.appendText("\n\nStudent Values for Semester " + selectedSemester + ":\n");
+                                uneditableTextArea.appendText(studentValues);
 
-                                    // Clear the selection and add "Select Module" option
-                                    moduleComboBox.getSelectionModel().clearSelection();
-                                    moduleComboBox.getItems().add("Select Module");
-                                    moduleComboBox.getSelectionModel().select("Select Module");
-                                }
+                                
                             } else {
                                 System.out.println("No modules found for the selected semester.");
 
@@ -215,6 +239,9 @@ public class QuinaryController {
                                 moduleComboBox.getSelectionModel().clearSelection();
                                 moduleComboBox.getItems().add("Select Module");
                                 moduleComboBox.getSelectionModel().select("Select Module");
+
+                                // Set a message in uneditableTextArea
+                                uneditableTextArea.setText("No modules found for the selected semester.");
                             }
 
                             break; // Break out of the loop after adding modules for the selected semester
@@ -231,6 +258,8 @@ public class QuinaryController {
             System.out.println("Invalid selection: course or semester is null or empty.");
         }
     }
+
+
 
     
 
