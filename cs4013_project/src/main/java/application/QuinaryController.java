@@ -167,7 +167,15 @@ public class QuinaryController {
     
                         // Append values for each semester
                         for (int i = 1; i < parts.length; i++) {
-                            studentValues.append("Module ").append(i).append(": ").append(parts[i].trim()).append("\n");
+                            // Check if it's the last field (Module 9) and replace with "GPA = "
+                            if (i == parts.length - 1) {
+                                studentValues.append("GPA = ").append(parts[i].trim()).append("\n");
+                            } else {
+                                // Check if the field is not empty before appending
+                                if (!parts[i].trim().isEmpty()) {
+                                    studentValues.append("Module ").append(i).append(": ").append(parts[i].trim()).append("\n");
+                                }
+                            }
                         }
     
                         return studentValues.toString();
@@ -184,8 +192,11 @@ public class QuinaryController {
             e.printStackTrace();
         }
     
-        return "Student values not found for the selected course and semester.";
+        // Return an empty string if no matching information is found
+        return "";
     }
+    
+    
 
     @FXML
     private void updateModulesForSemester() {
