@@ -166,8 +166,8 @@ public class QuinaryController {
                     StringBuilder studentValues = new StringBuilder("");
     
                     // Append values for each semester
-                    for (int i = 1; i < parts.length; i++) {
-                        studentValues.append("Module ").append(i - 1).append(": ").append(parts[i].trim()).append("\n");
+                    for (int i = 1; i < parts.length - 1; i++) {
+                        studentValues.append("Module ").append(i).append(": ").append(parts[i].trim()).append("\n");
                     }
     
                     return studentValues.toString();
@@ -186,8 +186,7 @@ public class QuinaryController {
 
     @FXML
     private void updateModulesForSemester() {
-        System.out.println("Updating modules for semester...");
-
+ 
         // Get the selected course and semester from the ComboBoxes
         String selectedCourse = courseComboBox.getValue();
         String selectedSemester = semesterComboBox.getValue();
@@ -228,7 +227,7 @@ public class QuinaryController {
 
                                 // Find and print the corresponding student values
                                 String studentValues = findStudentValues(selectedCourse);
-                                uneditableTextArea.appendText("\n\nStudent Values for Semester " + selectedSemester + ":\n");
+                                uneditableTextArea.appendText("Student Values for Semester " + selectedSemester + ":\n");
                                 uneditableTextArea.appendText(studentValues);
 
                                 
@@ -262,7 +261,7 @@ public class QuinaryController {
 
 
     
-
+    
     @FXML
     private void saveChanges() {
         // Implement the logic to save changes to the CSV file
