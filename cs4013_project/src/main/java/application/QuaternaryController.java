@@ -1,5 +1,3 @@
-// Student Main page: Transcript
-
 package application;
 
 import java.io.BufferedReader;
@@ -12,6 +10,9 @@ import java.util.Arrays;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
+/**
+ * @author Kyle Hellstrom, 22343261
+ */
 public class QuaternaryController {
     // ~~ Files ~~ //
     // File Names
