@@ -234,6 +234,7 @@ public class QuinaryController {
 
                                 // Set the modules text in uneditableTextArea
                                 StringBuilder modulesText = new StringBuilder();
+                                modulesText.append("Studnet Modules for semester :").append(selectedSemester).append("\n");
                                 for (String module : moduleList) {
                                     modulesText.append(module).append("\n");
                                 }
@@ -241,7 +242,7 @@ public class QuinaryController {
 
                                 // Find and print the corresponding student values
                                 String studentValues = findStudentValues(selectedCourse,selectedSemester);
-                                uneditableTextArea.appendText("Student Values for Semester " + selectedSemester + ":\n");
+                                uneditableTextArea.appendText("Respective student Grades for Semester " + selectedSemester + ":\n");
                                 uneditableTextArea.appendText(studentValues);
 
                                 
