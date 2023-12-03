@@ -146,12 +146,12 @@ public class QuaternaryController {
                         forename = studentParts[3];
                         surname = studentParts[4];
                         courseCode = studentParts[5];
-                        System.out.println("\nStudent Prefix: " + prefix); //  check after
-                        System.out.println("Student Forename: " + forename); //  check after
-                        System.out.println("Student Surname: " + surname); //  check after
-                        System.out.println("Course Code: " + courseCode); //  check after
-                        System.out.println("\nStudent ID final: " + studentCSVID); //  check after
-                        System.out.println("Student Line final: " + studentLine); //  check after
+                        System.out.println("\nStudent Prefix: " + prefix); 
+                        System.out.println("Student Forename: " + forename); 
+                        System.out.println("Student Surname: " + surname); 
+                        System.out.println("Course Code: " + courseCode); 
+                        System.out.println("\nStudent ID final: " + studentCSVID); 
+                        System.out.println("Student Line final: " + studentLine); 
                         System.out.println("studentParts final: " + Arrays.toString(studentParts));// check studentParts
                         return false;
                     }
@@ -196,9 +196,9 @@ public class QuaternaryController {
                             courseParts = courseLine.split(",");
                         }
                         System.out.println("semesterQCA: " + semesterQCA);
-                        System.out.println("\nCourse ID: " + courseCSVID); //  check after
-                        System.out.println("Total Semesters: " + totalSemesters); //  check after
-                        System.out.println("Course Line final: " + courseLine); //  check after
+                        System.out.println("\nCourse ID: " + courseCSVID); 
+                        System.out.println("Total Semesters: " + totalSemesters); 
+                        System.out.println("Course Line final: " + courseLine); 
                         System.out.println("CourseParts final: " + Arrays.toString(courseParts));// check CourseParts
 
                         return false;
@@ -272,6 +272,7 @@ public class QuaternaryController {
                         System.out.println(Arrays.toString(moduleParts));
                         allModuleCredits.add(moduleParts);
                     }
+                    //for testing/debugging
                     System.out.println("\nAll Module Codes:");
                     for (String[] code : allModuleCodes) {
                         System.out.println("Codes: " + Arrays.toString(code));
@@ -321,7 +322,6 @@ public class QuaternaryController {
             if (studentID != null && forename != null && surname != null && courseName != null && courseCode != null
                     && courseRoute != null && semesterQCA != null && semesterYears != null && totalYears != null
                     && moduleIds != null && moduleNames != null && gradeLetters != null && moduleCredits != null) {
-                // TODO make it so each semester can be printed with correct info
 
                 // Build Transcript
                 fullTranscript.append(
@@ -331,6 +331,7 @@ public class QuaternaryController {
 
                 return fullTranscript.toString(); // Final goal
             } else {
+                //testing/ debugging if something goes wrong
                 System.out.println("StudentId: " + (studentID != null));
                 System.out.println("\nForename: " + (forename != null));
                 System.out.println("\nSurname: " + (surname != null));
@@ -417,8 +418,9 @@ public class QuaternaryController {
 
         for (int rowCount = 0; rowCount < totalSemesters; rowCount++) {
             System.out.println("\nLoop Iteration: " + (rowCount + 1));
-            currentSemester = rowCount + 1; // start semesters from semester 1 //TODO
+            currentSemester = rowCount + 1; // start semesters from semester 1 
 
+            //Gets average of QCA
             if (currentSemester == 1 || currentSemester == 2) {
                 totalQCA = (semesterQCA.get(0) + semesterQCA.get(1)) / 2;
             } else if (currentSemester == 3 || currentSemester == 4) {
@@ -443,7 +445,6 @@ public class QuaternaryController {
             transcriptBuilder.append(blankLines()).append("\r\n");
             transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(rowCount), totalQCA)).append("\r\n");
 
-            int temp = 0; //It is beign used
             moduleIds.clear();
             moduleNames.clear();
             gradeLetters.clear();
@@ -452,9 +453,9 @@ public class QuaternaryController {
             for (String moduleCode : allModuleCodes.get(rowCount)) {
                 if (first) {
                     first = false;
-                    continue; // Skip the first iteration
+                    continue; // Skips the first iteration
                 }
-                if (moduleCode != null && !moduleCode.isEmpty()) {
+                if (moduleCode != null && !moduleCode.isEmpty()) { //adds ids while the array is not empty
                     moduleIds.add(moduleCode);
                 } else {
                     break;
@@ -508,7 +509,6 @@ public class QuaternaryController {
                     moduleNames,
                     gradeLetters,
                     moduleCredits)).append("\r\n");
-            temp++;
 
             transcriptBuilder.append(theLine()).append("\r\n");
         }
@@ -527,7 +527,7 @@ public class QuaternaryController {
     }
 
     /**
-     * Formatting ech semester's header 
+     * Formatting each semester's header 
      * @param semesterYears The string of the semester year as yyyy/yy.
      * @param year The course year of the semester.
      * @param totalSemesters The accumulative number of semesters in the course.
