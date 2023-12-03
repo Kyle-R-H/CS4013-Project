@@ -1,0 +1,307 @@
+<mxfile host="app.diagrams.net" modified="2023-12-03T20:40:10.022Z" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/119.0.0.0 Safari/537.36" etag="dz_SQ5WhLfqvzb44kM60" version="22.1.5" type="device">
+  <diagram name="Page-1" id="s0FTwqUZs4a5k7kcMwxJ">
+    <mxGraphModel dx="1420" dy="761" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-48" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-50" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;AccountLogin.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="170" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-51" value="&lt;b&gt;&lt;font style=&quot;font-size: 16.5px;&quot;&gt;To allow the user to login to the site.&lt;/font&gt;&lt;/b&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="250" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-53" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="329" y="270" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-54" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="200" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-55" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="205" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-112" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-113" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;InnerJoin.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="370" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-114" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Code to compare student login to grades&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="450" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-115" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="470" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-116" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="400" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-117" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="405" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-119" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-120" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;QCACalculator.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="570" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-121" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;To see if the QCA is of a passing level (QCA &amp;gt;= 2)&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="650" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-122" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Sean Mulcahy&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="670" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-123" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="600" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-124" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="605" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-125" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-126" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;StudentInfo.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="760" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-127" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Allows the student to enter their information&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="840" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-128" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Sean Fitzgerald&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="860" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-129" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="790" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-130" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="795" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-131" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="990" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-132" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Transcript.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="960" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-133" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Displays the students official transcript and updates accordingly&amp;nbsp;&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1040" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-134" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1060" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-135" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="990" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-136" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="995" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-137" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1320" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-138" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;App.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1290" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-139" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Represents the display of the actual site within the app&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1370" width="210" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-140" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1390" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-141" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1320" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-142" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1325" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-143" value="&lt;span style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Java&lt;/b&gt;&lt;/span&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1230" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-144" value="&lt;font style=&quot;font-size: 18px;&quot;&gt;&lt;b&gt;Spares&lt;/b&gt;&lt;/font&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="240" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-145" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1510" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-146" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;PrimaryController.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1480" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-147" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;The main controller than allows the system to access all other proceeding controllers&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1560" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-148" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1580" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-149" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1510" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-150" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1515" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-151" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1690" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-152" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;SecondaryController.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1660" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-153" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;To make sure the login button works appropriately&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1740" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-154" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1760" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-155" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1690" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-156" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1695" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-157" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1870" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-158" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;TeritaryController.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1840" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-159" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;To allow for an admin to login to the site, rather than a student&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="1920" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-160" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="1940" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-161" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="1870" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-162" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="1875" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-168" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2050" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-169" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;QuarternaryController.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2020" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-170" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Adding the module csv&#39;s and the transcript&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="2100" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-171" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="2120" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-172" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2050" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-173" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="2055" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-174" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2230" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-175" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;QuinaryController.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2200" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-176" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Provides details of each year, semester and the grades associated with them&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="2280" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-177" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="2300" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-178" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2230" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-179" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="2235" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-180" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2410" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-181" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;module-info.java&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2380" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-182" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;JavaFX code for the module views&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="2460" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-183" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="2480" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-184" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2410" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-185" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="2415" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-186" value="&lt;b&gt;&lt;font style=&quot;font-size: 16.5px;&quot;&gt;Resources/Application&lt;/font&gt;&lt;/b&gt;" style="shape=process;whiteSpace=wrap;html=1;backgroundOutline=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2700" width="330" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-187" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2800" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-188" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Administrator.csv&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2770" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-189" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Add a home button to the student transcript&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="2850" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-190" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;David Bracken&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="2870" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-191" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2800" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-192" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="2805" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-193" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2980" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-194" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Courses.csv&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2950" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-195" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Displays the course and their respective codes&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="3030" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-196" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="3050" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-197" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="2980" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-198" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="2985" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-199" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3160" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-200" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Modules.csv&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3130" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-201" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Adding module csv + transcript&amp;nbsp;&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="3210" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-202" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="3230" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-203" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3160" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-204" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="3165" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-205" value="" style="shape=internalStorage;whiteSpace=wrap;html=1;backgroundOutline=1;dx=260;dy=40;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3340" width="510" height="140" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-206" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Student.csv&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3310" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-207" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Adding student csv + transcript&amp;nbsp;&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="3390" width="210" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-208" value="&lt;span style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Kyle Hellstrom&lt;/b&gt;&lt;/span&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="340" y="3410" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-209" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Responsiblities&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="40" y="3340" width="160" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="PTzeu7tBHH1SB3bdNEXw-210" value="&lt;font style=&quot;font-size: 16.5px;&quot;&gt;&lt;b&gt;Collaborators&lt;/b&gt;&lt;/font&gt;" style="text;strokeColor=none;align=center;fillColor=none;html=1;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="300" y="3345" width="160" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
