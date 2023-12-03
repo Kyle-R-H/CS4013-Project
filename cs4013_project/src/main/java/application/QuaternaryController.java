@@ -51,6 +51,11 @@ public class QuaternaryController {
     private ArrayList<String[]> allModuleCredits = new ArrayList<>();
     private ArrayList<String[]> allModuleGrades = new ArrayList<>();
 
+    private ArrayList<String> moduleId;
+    private ArrayList<String> moduleName;
+    private ArrayList<String> gradeLetter;
+    private ArrayList<String> moduleCredit;
+
     // ~~ The Transcript ~~ //
     // ^Transcript Header
     private String studentID; // got
@@ -100,6 +105,10 @@ public class QuaternaryController {
         gradeLetters = new ArrayList<>();
         credits = new ArrayList<>();
         numOfModules = new ArrayList<>();
+        moduleId = new ArrayList<>();
+        moduleName = new ArrayList<>();
+        gradeLetter = new ArrayList<>();
+        moduleCredit = new ArrayList<>();
 
         // get info
         getStudentInfoCSV();
@@ -274,11 +283,11 @@ public class QuaternaryController {
                         System.out.println("Grades: " + Arrays.toString(grade));
                     }
                     for (String[] num : allModuleCredits) {
-                        numOfModules.add(num.length);
+                        numOfModules.add(num.length-1);
                     }
                     System.out.println("Number of modules:");
                     for (Integer value : numOfModules) {
-                        System.out.print(value + "\ng");
+                        System.out.print(value + "\n");
                     }
                     break;
                 }
@@ -420,49 +429,53 @@ public class QuaternaryController {
                 totalQCA = -1;
             }
 
-        for (int j = 0; j < totalSemesters; j++) {
-            System.out.println("Loop Iteration: " + (j + 1));
-            currentSemester = j + 1; // start semesters from semester 1 //TODO
+            currentSemester = 0;
+        for (int rowCount = 0; rowCount < totalSemesters; rowCount++) {
+            System.out.println("Loop Iteration: " + (rowCount + 1));
+            currentSemester = rowCount + 1; // start semesters from semester 1 //TODO
 
-            transcriptBuilder.append(semesterDetails(semesterYears.get(j), totalYears.get(j), currentSemester))
+            transcriptBuilder.append(semesterDetails(semesterYears.get(rowCount), totalYears.get(rowCount), currentSemester))
                     .append("\r\n");
     
             // Print header once per semester
             transcriptBuilder.append(blankLines()).append("\r\n");
-            transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(j), totalQCA)).append("\r\n");
+            transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(rowCount), totalQCA)).append("\r\n");
     
 
-            // for (int rowCount = 0; rowCount < array.length; rowCount++) {
+                moduleId.clear();
+                moduleName.clear();
+                gradeLetter.clear();
+                moduleCredit.clear();
+                for (int a = 1; a < numOfModules.get(rowCount); a++) {
+                    moduleIds.add(allModuleCodes.get(rowCount)[a]);
+                    System.out.println("a: " + a + ", moduleId: " + moduleIds.get(moduleIds.size() - 1));
+                }
+                for (int b = 1; b < numOfModules.get(rowCount); b++) {
+                    moduleName.add(allModuleNames.get(rowCount)[b]);
+                    System.out.println("b: " + b + ", moduleName: " + moduleName.get(moduleName.size() - 1));
+                }
+                for (int c = 1; c < numOfModules.get(rowCount); c++) {
+                    gradeLetter.add(allModuleGrades.get(rowCount)[c]);
+                    System.out.println("c: " + c + ", gradeLetter: " + gradeLetter.get(gradeLetter.size() - 1));
+                }
+                for (int d = 1; d < numOfModules.get(rowCount); d++) {
+                    moduleCredit.add(allModuleCredits.get(rowCount)[d]);
+                    System.out.println("d: " + d + ", moduleCredit: " + moduleCredit.get(moduleCredit.size() - 1));
+                }
+                for (int index = 0; index < numOfModules.get(rowCount); index++) {
+                    transcriptBuilder.append(moduleInfo(moduleIds.get(moduleIds.size() - 1), 
+                                                        moduleName.get(moduleName.size() - 1), 
+                                                        gradeLetter.get(gradeLetter.size() - 1), 
+                                                        moduleCredit.get(moduleCredit.size() - 1))).append("\r\n");
+                }
                 
-            // }
-            for (String[] code : allModuleCodes) {//each row of the full array of moduleCodes
-                for (int k = 0; k < code.length; k++) {
-                    moduleIds.add(code[k]);                    
-                }
-            }
 
-            for (String[] names : allModuleNames) {//each row of the full array of moduleNames
-                for (int k = 0; k < names.length; k++) {
-                    moduleIds.add(names[k]);                    
-                }
-            }
 
-            for (String[] credit : allModuleCredits) {//each row of the full array of moduleCredits
-                for (int k = 0; k < credit.length; k++) {
-                    moduleIds.add(credit[k]);                    
-                }
-            }
-            for (String[] grade : allModuleCredits) {//each row of the full array of moduleGrades
-                for (int k = 0; k < grade.length; k++) {
-                    moduleIds.add(grade[k]);                    
-                }
-            }
 
-            for (int index = 0; index < numOfModules.size(); index++) {
-                
-            }
-            // transcriptBuilder.append(moduleInfo(moduleId, moduleName, gradeLetter, credit)).append("\r\n");
-            transcriptBuilder.append(moduleInfo("N/A", "N/A", "N/A", -0)).append("\r\n");
+
+
+            //TODO if i have time, make certain fields be N/A if there's no data
+            // transcriptBuilder.append(moduleInfo("N/A", "N/A", "N/A", "N/A")).append("\r\n");
             transcriptBuilder.append(theLine()).append("\r\n");
         }
     
@@ -552,7 +565,7 @@ public String getFormattedTranscript(ArrayList<Double> semesterQCA, double total
      */
     @FXML
     private static String moduleInfo(String moduleId, String moduleName, String gradeLetter,
-            int credits) {
+            String credits) {
         String formaString = "|%s%-" + Math.max(13, String.valueOf(moduleId).length()) + "s%-"
                 + Math.max(50, String.valueOf(moduleName).length()) + "s %-10s %-"
                 + Math.max(9, String.valueOf(gradeLetter).length()) + "s %-"

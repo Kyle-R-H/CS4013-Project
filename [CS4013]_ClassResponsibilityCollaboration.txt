@@ -1,7 +1,7 @@
 [CS4013] - Class Responsibility Collaboration
 Team Number: Team 8
 Responsibilities : Contributors [Contributions {Percentage of 100%} ]
-Login account code, GitHub setup and respective csv files, Transcript : Kyle Hellstrom(22343261) [25%]
+Login account code, GitHub setup and respective csv files, Transcript, QuaternaryController.java : Kyle Hellstrom(22343261) [25%]
 Admin info code, JavaDoc reviewer, and GUI designer : David Bracken (22342044) [25%]
 QCA calculator and UML diagram : Sean Mulcahy (22354166) [25%]
 StudentInfo code and CRC doc : Seán Fitzgerald (22370595) [25%]
