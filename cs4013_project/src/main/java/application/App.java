@@ -19,7 +19,7 @@ public class App extends Application {
     private static Scene scene;
 
     /**
-     * 
+     * Creates stage and scenes.
      */
     @Override
     public void start(Stage stage) throws IOException {
