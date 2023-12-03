@@ -18,6 +18,9 @@ public class App extends Application {
 
     private static Scene scene;
 
+    /**
+     * 
+     */
     @Override
     public void start(Stage stage) throws IOException {
         stage.setTitle("QCA - Calculator");
@@ -26,15 +29,30 @@ public class App extends Application {
         stage.show();
     }
 
+    /**
+     * Allows views to be switched
+     * @param fxml The variable for the desired fxml file.
+     * @throws IOException if I/O error occurs while switching to homepage.
+     */
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
     }
 
+    /**
+     * Loads specified fxml file.
+     * @param fxml The variable for the desired fxml file.
+     * @return the fxml file to load.
+     * @throws IOException if I/O error occurs while switching to homepage.
+     */
     private static Parent loadFXML(String fxml) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(App.class.getResource(fxml + ".fxml"));
         return fxmlLoader.load();
     }
 
+    /**
+     * Main method
+     * @param args main method String[]
+     */
     public static void main(String[] args) {
         launch();
     }

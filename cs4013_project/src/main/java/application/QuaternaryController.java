@@ -399,7 +399,7 @@ public class QuaternaryController {
      * @param semesterQCA The semester's QCA.
      * @param totalQCA The average QCA.
      * @param semesterYears The string of the semester year as yyyy/yy.
-     * @param year The course year of the semester.
+     * @param totalYears The course year of the semester.
      * @param totalSemesters The accumulative number of semesters in the course.
      * @param moduleIds An arraylist of modles codes.
      * @param moduleNames An arraylist of module names.
