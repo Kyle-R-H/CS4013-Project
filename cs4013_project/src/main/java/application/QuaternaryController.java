@@ -13,16 +13,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
 public class QuaternaryController {
-    /*
-     * DataField
-     */
-
     // ~~ Files ~~ //
-    // ^File Names
+    // File Names
     private final String STUDENT_FILE = "Student.csv";
     private final String COURSES_FILE = "Courses.csv";
     private final String MODULES_FILE = "Modules.csv";
-    // ^Read Files
+    // Read Files
     private BufferedReader studentReader = new BufferedReader(
             new InputStreamReader(getClass().getResourceAsStream(STUDENT_FILE)));
     private BufferedReader courseReader = new BufferedReader(
@@ -30,12 +26,12 @@ public class QuaternaryController {
     private BufferedReader moduleReader = new BufferedReader(
             new InputStreamReader(getClass().getResourceAsStream(MODULES_FILE)));
 
-    // ^Reference Student Id from SecondaryController.java
+    // Reference Student Id from SecondaryController.java
     private final String LOGIN_STUDENT_ID = SecondaryController.studentNumber;
 
-    // ^Get access to data
-    private String studentCSVID; // gpt
-    private String courseCSVID; // got
+    // Get access to data
+    private String studentCSVID;
+    private String courseCSVID; 
 
     private String studentLine;
     private String courseLine;
@@ -51,43 +47,34 @@ public class QuaternaryController {
     private ArrayList<String[]> allModuleGrades = new ArrayList<>();
 
     // ~~ The Transcript ~~ //
-    // ^Transcript Header
-    private String studentID; // got
-    private String prefix; // got
-    private String forename; // got
-    private String surname; // got
-    private String courseName; // got
-    private String courseCode; // got
-    private String courseRoute; // got
+    // Transcript Header
+    private String studentID; 
+    private String prefix; 
+    private String forename; 
+    private String surname; 
+    private String courseName; 
+    private String courseCode; 
+    private String courseRoute; 
 
-    // ^Formatted Transcript
-    // ^semesterHeader_n_QCA()
-    private int currentSemester; // got
-    private ArrayList<Double> semesterQCA; // TODO get from course.csv
-    private double totalQCA; // if/for loop
-    // ^semesterDetails()
-    private ArrayList<String> semesterYears; // if loop
-    private ArrayList<Integer> totalYears; // if loop
-    private int year; // cannot get
-    private int totalSemesters; // got
+    // Formatted Transcript
+    // semesterHeader_n_QCA()
+    private int currentSemester; 
+    private ArrayList<Double> semesterQCA;
+    private double totalQCA;
+    // semesterDetails()
+    private ArrayList<String> semesterYears;
+    private ArrayList<Integer> totalYears; 
+    private int year; 
+    private int totalSemesters; 
 
-    // ^moduleInfo()
-    // TODO all arraylists this
+    // moduleInfo()
     private ArrayList<String> moduleIds;
     private ArrayList<String> moduleNames;
     private ArrayList<String> gradeLetters;
     private ArrayList<Integer> moduleCredits;
-    // ^Printing Transcript
     StringBuilder fullTranscript = new StringBuilder();
 
-    /*
-     * Methods
-     */
-    // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-    /**
-     * Constructor
-     */
-
+    // ~~ Methods ~~ //
     public QuaternaryController() {
         // initialize ArrayLists
         semesterQCA = new ArrayList<>();
@@ -127,8 +114,7 @@ public class QuaternaryController {
                         "-fx-border-color: transparent;" +
                         "-fx-font-family: Consolas;" +
                         "-fx-font-size: 12;");
-        transcriptTextArea.getParent().requestFocus(); // Set focus to another node to apply the styles to TextArea
-                                                       // immediately
+        transcriptTextArea.getParent().requestFocus(); // Set focus to another node to apply the styles to TextArea immediately
         transcriptTextArea.setText(theTranscript());// Sets string into TextArea
     }
 
@@ -137,22 +123,21 @@ public class QuaternaryController {
             try {
                 System.out.println("\nStudent:");
                 while ((studentLine = studentReader.readLine()) != null) { // makes sure student.csv is not empty
-                    System.out.println("Student Line search: " + studentLine);// ^ check iterations
+                    System.out.println("Student Line search: " + studentLine);//  check iterations
                     studentParts = studentLine.split(",");
-                    if (studentParts.length >= 2 && studentParts[0].equals(LOGIN_STUDENT_ID)) {
+                    if (studentParts.length >= 2 && studentParts[0].equals(LOGIN_STUDENT_ID)) { //makes sure 2 indexes of id and password are present and if the student id is present
                         studentCSVID = studentParts[0];
                         prefix = studentParts[2];
                         forename = studentParts[3];
                         surname = studentParts[4];
                         courseCode = studentParts[5];
-                        System.out.println("\nStudent Prefix: " + prefix); // ^ check after
-                        System.out.println("Student Forename: " + forename); // ^ check after
-                        System.out.println("Student Surname: " + surname); // ^ check after
-                        System.out.println("Course Code: " + courseCode); // ^ check after
-                        System.out.println("\nStudent ID final: " + studentCSVID); // ^ check after
-                        System.out.println("Student Line final: " + studentLine); // ^ check after
-                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// ^ check
-                                                                                                   // studentParts
+                        System.out.println("\nStudent Prefix: " + prefix); //  check after
+                        System.out.println("Student Forename: " + forename); //  check after
+                        System.out.println("Student Surname: " + surname); //  check after
+                        System.out.println("Course Code: " + courseCode); //  check after
+                        System.out.println("\nStudent ID final: " + studentCSVID); //  check after
+                        System.out.println("Student Line final: " + studentLine); //  check after
+                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// check studentParts
                         return false;
                     }
                 }
@@ -171,7 +156,7 @@ public class QuaternaryController {
             try {
                 System.out.println("\nCourse:");
                 while ((courseLine = courseReader.readLine()) != null) {
-                    System.out.println("Course Line search: " + courseLine);// ^ check iterations
+                    System.out.println("Course Line search: " + courseLine);//  check iterations
                     courseParts = courseLine.split(",");
                     if (courseParts.length >= 2 && courseParts[1].equals(LOGIN_STUDENT_ID)) {
                         courseCSVID = courseParts[1];
@@ -192,10 +177,10 @@ public class QuaternaryController {
                             courseParts = courseLine.split(",");
                         }
                         System.out.println("semesterQCA: " + semesterQCA);
-                        System.out.println("\nCourse ID: " + courseCSVID); // ^ check after
-                        System.out.println("Total Semesters: " + totalSemesters); // ^ check after
-                        System.out.println("Course Line final: " + courseLine); // ^ check after
-                        System.out.println("CourseParts final: " + Arrays.toString(courseParts));// ^check CourseParts
+                        System.out.println("\nCourse ID: " + courseCSVID); //  check after
+                        System.out.println("Total Semesters: " + totalSemesters); //  check after
+                        System.out.println("Course Line final: " + courseLine); //  check after
+                        System.out.println("CourseParts final: " + Arrays.toString(courseParts));// check CourseParts
 
                         return false;
                     }
@@ -282,7 +267,7 @@ public class QuaternaryController {
             System.out.println("Problem with moduleReader/ " + MODULES_FILE + ":\nIOException: " + e + "\n");
             e.printStackTrace();
         }
-        // ^Year
+        // Year
         // checks how many years there are and sets the total years
         if (totalSemesters == 7 || totalSemesters == 8) {
             year = 4;
@@ -311,7 +296,7 @@ public class QuaternaryController {
                 fullTranscript.append(getFormattedTranscript(semesterQCA, totalQCA, semesterYears, totalYears,
                         totalSemesters, moduleIds, moduleNames, gradeLetters, moduleCredits));
 
-                return fullTranscript.toString(); // ^Final goal
+                return fullTranscript.toString(); // Final goal
             } else {
                 System.out.println("StudentId: " + (studentID != null));
                 System.out.println("\nForename: " + (forename != null));
@@ -488,7 +473,7 @@ public class QuaternaryController {
             }
             System.out.println("moduleCredits: " + moduleCredits);
 
-            transcriptBuilder.append(moduleInfo(moduleIds,
+            transcriptBuilder.append(moduleInfo(moduleIds, //in the moduleInfo it loops for the amount of modules there are, displaying the module info 
                     moduleNames,
                     gradeLetters,
                     moduleCredits)).append("\r\n");
@@ -545,7 +530,7 @@ public class QuaternaryController {
             ArrayList<Integer> moduleCredits) {
         StringBuilder moduleBuilder = new StringBuilder();
 
-        for (int i = 0; i < moduleId.size(); i++) {
+        for (int i = 0; i < moduleId.size() || i <= 8; i++) {
             String formattedString = String.format("|%s%-" + Math.max(13, moduleId.get(i).length()) + "s%-"
                     + Math.max(50, moduleName.get(i).length()) + "s %-10s %-"
                     + Math.max(9, gradeLetters.get(i).length()) + "s %-"
@@ -578,5 +563,3 @@ public class QuaternaryController {
         return String.format("|%-91s | %-25s |", "", "");
     }
 }
-
-// TODO javadoc, documentation
