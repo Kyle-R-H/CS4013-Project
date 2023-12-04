@@ -304,12 +304,8 @@ public class QuinaryController {
                 && selectedModule != null && !selectedModule.isEmpty()
                 && enteredGrade != null && !enteredGrade.isEmpty()) {
 
-            //System.out.println(enteredGrade); //-------------------------------------------------
             // Update the Courses.csv file with the new grade
             updateCoursesCSV(selectedCourse, selectedStudent, selectedModule, enteredGrade);
-
-            // Provide feedback or perform additional actions as needed
-            //System.out.println("Changes saved successfully!");
         } else {
             System.out.println("Incomplete data. Please select course, semester, module, and enter grade.");
         }
@@ -325,34 +321,22 @@ public class QuinaryController {
             List<String> lines = Files.readAllLines(filePath);
             List<String> updatedLines = new ArrayList<>();
             
-
-            //System.out.println(moduleIndex); //--------------------------------------------------
             for (int i = 0; i < lines.size(); i++) {
                 String line = lines.get(i).trim();
 
-                //System.out.println("Line before split: " + line); //-------------------------------
-
                 String[] parts = line.split(",");
 
-                //System.out.println("Number of elements after split: " + parts.length); //----------
-
-
-                //System.out.println(Arrays.toString(parts)); //----------------------------------- Using
-                //System.out.println("part[0}: " +parts[0]);
-                //System.out.println("Course: " + selectedCourse);
                 if (parts.length > 1 && parts.length < 10 && parts[0].equals(selectedCourse) && parts[1].equals(selectedStudent)){
                     numb +=1;
                 }
 
                 if (parts.length == 10 && parts[0].equals(selectedSemester) && numb == 1 ){
-                    System.out.println(Arrays.toString(parts));
                     // Update the grade for the selected module
                     if (selectedModuleIndex != -1 && selectedModuleIndex < parts.length) {
                         parts[selectedModuleIndex] = newGrade;
                         updatedLines.add(String.join(",", parts));
                     }
                     numb -= 1;
-                    System.out.println(Arrays.toString(parts));
                 } 
                 updatedLines.add(line);
                 
