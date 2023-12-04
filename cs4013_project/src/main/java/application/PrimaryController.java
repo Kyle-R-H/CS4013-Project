@@ -28,18 +28,4 @@ public class PrimaryController {
     private void switchToTertiary() throws IOException {
         App.setRoot("tertiary");
     }
-
-
-    // remove //
-    // Remove when doen for testing ---------------------------------------------------------------
-    @FXML
-    private void switchToQuarternary() throws IOException {
-        App.setRoot("quarternary");
-    }
-
-    @FXML
-    private void switchToQuinary() throws IOException {
-        App.setRoot("quinary");
-    }
-    // --------------------------------------------------------------------------------------------
 }
