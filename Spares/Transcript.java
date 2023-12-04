@@ -53,8 +53,6 @@ public class Transcript {
 
         transcriptBuilder.append(blankLines()).append("\r\n");
 
-        // semesterQCA = ArrayList<Double //TODO maybe add onto this to make
-                                                   // 1 arraylist with all info needed per section
         if (semesterQCA.size() > 0) {
             transcriptBuilder.append(semesterHeader_n_QCA(semesterQCA.get(i), totalQCA)).append("\r\n");
         }
@@ -62,7 +60,7 @@ public class Transcript {
 
         transcriptBuilder.append(blankLines());
 
-        for (int j = 0; j < allModuleInfo.size(); j++) { //TODO grades
+        for (int j = 0; j < allModuleInfo.size(); j++) {
             String[] moduleIDs = allModuleInfo.get(j);
             String[] moduleName = allModuleInfo.get(j+8);
             String[] moduleCredits = allModuleInfo.get(j+16);
