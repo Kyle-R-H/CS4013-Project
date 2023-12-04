@@ -10,8 +10,6 @@
       <Label text="Primary View" />
       <Button fx:id="primaryButton" text="Student Login" onAction="#switchToSecondary"/>
       <Button fx:id="tertiaryButton" text="Admin Login" onAction="#switchToTertiary"/>
-      <Button fx:id="quarternaryButton" text="Student Page" onAction="#switchToQuarternary"/>
-      <Button fx:id="quinaryButton" text="Admin Page" onAction="#switchToQuinary"/>
    </children>
    <padding>
       <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />

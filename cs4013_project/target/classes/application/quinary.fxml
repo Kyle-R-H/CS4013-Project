@@ -28,13 +28,14 @@
    <HBox alignment="CENTER" spacing="10.0">
       <!-- Small TextField and Save Button on the left -->
       <VBox spacing="5.0">
-         <TextField fx:id="textField1" promptText="Grade" />
-         <ComboBox fx:id="moduleComboBox" promptText="Select Module" />
-         <Button text="Save" onAction="#saveChanges"/>
+         <TextField fx:id="grade" promptText="Grade" />
+         <ComboBox fx:id="moduleComboBox" promptText="Select Module" onShowing="#updateModulesForSemester"/>
+         <Button text="Save" onAction="#saveChanges" />
+         <Button text="Update QCA" onAction="#updateQCA" />
       </VBox>
       
       <!-- Uneditable TextArea on the right -->
-      <TextArea fx:id="uneditableTextArea" promptText="Uneditable Text Area" editable="false"/>
+   <TextArea fx:id="uneditableTextArea" promptText="Uneditable Text Area" editable="false"/>
    </HBox>
 
    <padding>
