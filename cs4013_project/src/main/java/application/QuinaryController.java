@@ -61,7 +61,7 @@ public class QuinaryController {
     private ObservableList<String> uniqueStudents;
     private ObservableList<String> uniqueSemesters;
     int selectedModuleIndex = -1;
-    private static double totalPoints = 0.0;
+    private static double totalPoints = 0.0; // It is used.....
 
 
 
