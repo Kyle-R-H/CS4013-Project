@@ -26,8 +26,15 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+/**
+ * QuinaryController
+ */
 public class QuinaryController {
 
+    /**
+     * Switches view to the primary view.
+     * @throws IOException if an I/O error occurs while switching to the primary view.
+     */
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
@@ -65,6 +72,9 @@ public class QuinaryController {
 
 
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence what this does e.gInitializes ArrayLists and retrieves information. <- this is what i have in QuarternaryController
+     */
     @FXML
     private void initialize() {
         // Initialize observable lists
@@ -88,6 +98,9 @@ public class QuinaryController {
         });
     }
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     @FXML
     private void updateStudentsForCourse() {
         // Clear existing items in studentComboBox and semesterComboBox
@@ -135,6 +148,9 @@ public class QuinaryController {
         }
     }
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     private void loadDataFromCoursesCSV() {
         Set<String> coursesSet = new HashSet<>();
     
@@ -158,6 +174,12 @@ public class QuinaryController {
         uniqueCourses.addAll(coursesSet);
     }
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does and do similar for other methods
+     * @param selectedCourse The course code.
+     * @param selectedSemester The current semester.
+     * @return A string of...
+     */
     private String findStudentValues(String selectedCourse, String selectedSemester) {
         try (BufferedReader reader = Files.newBufferedReader(Paths.get("src\\main\\resources\\application\\Courses.csv"))) {
             String line;
@@ -206,6 +228,9 @@ public class QuinaryController {
     
     
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     @FXML
     private void updateModulesForSemester() {
  
@@ -291,6 +316,9 @@ public class QuinaryController {
         }
     }
     
+    /**
+     * Saves changes of..  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     @FXML
     private void saveChanges() {
         // Get the selected course, student, module, and grade from the ComboBoxes and TextField
@@ -311,6 +339,13 @@ public class QuinaryController {
         }
     }
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * @param selectedCourse like the one above
+     * @param selectedStudent
+     * @param selectedModule
+     * @param newGrade
+     */
     private void updateCoursesCSV(String selectedCourse, String selectedStudent, String selectedModule, String newGrade) {
         try {
             Path filePath = Paths.get("src\\main\\resources\\application\\Courses.csv");
@@ -348,6 +383,11 @@ public class QuinaryController {
         }
     }
     
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * @param filePath same ol story
+     * @param lines
+     */
     private void writeLinesToFile(Path filePath, List<String> lines) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toString()))) {
             for (String line : lines) {
@@ -359,6 +399,11 @@ public class QuinaryController {
         }
     }
 //-------------------------------------------------------------Calc from here on------------------------------------------------------------------------------------------------
+
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * @param csvFile
+     */
     private static void processCSVFile(String csvFile) {
         try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
             List<String> lines = new ArrayList<>();
@@ -383,6 +428,11 @@ public class QuinaryController {
     }
     
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * @param values
+     * @return
+     */
     private static double calculateTotalPoints(String[] values) {
         double totalPoints = 0.0;
         int count = 0;
@@ -442,6 +492,9 @@ public class QuinaryController {
     }
 
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     private static void calculateAndOverwriteAverage() {
         try (BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\application\\Courses.csv"))) {
             List<String> lines = new ArrayList<>();
@@ -464,12 +517,20 @@ public class QuinaryController {
         }
     }
     
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * @param value
+     * @return
+     */
     private static double roundToTwoDecimalPlaces(double value) {
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         String formattedValue = decimalFormat.format(value);
         return Double.parseDouble(formattedValue);
     }
 
+    /**
+     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     */
     @FXML
     private void updateQCA(){
         processCSVFile("src\\main\\resources\\application\\Courses.csv");
