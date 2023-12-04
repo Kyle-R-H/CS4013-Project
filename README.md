@@ -24,15 +24,16 @@ Student information is split between three files 'Courses.csv', 'Modules.csv' an
 To log into a student account and view your academic records you choose the "Student Login" button and it will direct you to the student login page. In this page you can either choose to got back to the homepage using the "Home" button or enter your credentials into the two text fields. Once you enter correct credentials and click the "Login" button, you will be directed to another page where you will see your student transcript. On this page you will still have the choice to go "Home" unless you decide to close the page.
 
 ### **Administrator:**
-To log into an administrator account and view a specific student's results and alter it if needed you can choose the "Admin Login" button and it will direct you to the admin login page. From here you can input your admin email and associated password into the two text fields and press "Login" to enter, or press the "Home" button to return to the homepage. Once the credentials are correct and you are logged in... 
-# David's advice goes here ^
+To log into an administrator account and view a specific student's results and alter it if needed you can choose the "Admin Login" button and it will direct you to the admin login page. From here you can input your admin email and associated password into the two text fields and press "Login" to enter, or press the "Home" button to return to the homepage. Once the credentials are correct and you are logged in you will be redirected to the admin "Control panel/Page". Here you will see three choice boxs (ComboBoxes) at the top of the page, a small text field on the left under which there is another choice box and two small buttons. Taking up most of your interface will be a large uneditable tectField that will allow the user to view data later on. As you will see these data selectors and empty fields will have what they contain written on them. Fill them out in order and you will see them all populate with options. Once you've navigated to the course then to the student then to the semester you will see the larger text area become populated with all of the modules that the student is undertaking and the modules respective current grades, to alter a grade for a module select a module from the choice box, then enter the grade correction in the text box above this and press the "Save" button, to update the students final QCA for the semester press the "Update QCA" button. If you would like to refresh the textArea on the right reselect the semester in the choice box.
+
 
 ### **Examples**
 #### **Student:**
 Enter a valid 8 digit student number and the correct password which is assigned in the Students.csv file.
 
 #### **Administrator:**
-# David's advice goes here also ^
+Enter a valid administrator email adress (Present in Administrators.csv) and password, make a selection in each choice box in order type in the grade change and press the "Save" button.
+If QCA Calculation is required also press the "Update QCA" buttton.
 ## Credits
   - David Bracken - 22342044
   - Kyle Hellstrom - 22343261
