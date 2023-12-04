@@ -12,10 +12,13 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -55,6 +58,7 @@ public class QuinaryController {
     private ObservableList<String> uniqueCourses;
     private ObservableList<String> uniqueStudents;
     private ObservableList<String> uniqueSemesters;
+    int selectedModuleIndex = -1; // Initialize with an invalid value
 
 
     @FXML
@@ -204,6 +208,8 @@ public class QuinaryController {
         // Get the selected course and semester from the ComboBoxes
         String selectedCourse = courseComboBox.getValue();
         String selectedSemester = semesterComboBox.getValue();
+        //String selectedModuleValue = moduleComboBox.getValue();
+
 
         // Clear existing items in moduleComboBox and uneditableTextArea
         moduleComboBox.getItems().clear();
@@ -240,6 +246,14 @@ public class QuinaryController {
                                 }
                                 uneditableTextArea.setText(modulesText.toString());
 
+                                // Add a listener to the ComboBox selection property
+                                moduleComboBox.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+                                    if (newValue != null) {
+                                        selectedModuleIndex = moduleComboBox.getItems().indexOf(newValue) + 1;
+                                        //System.out.println("Selected Module Index: " + selectedModuleIndex);
+                                    }
+                                });
+
                                 // Find and print the corresponding student values
                                 String studentValues = findStudentValues(selectedCourse,selectedSemester);
                                 uneditableTextArea.appendText("Respective student Grades for Semester " + selectedSemester + ":\n");
@@ -275,9 +289,87 @@ public class QuinaryController {
     
     @FXML
     private void saveChanges() {
-        // Implement the logic to save changes to the CSV file
-        // Use the values from the ComboBoxes and TextFields to update the corresponding CSV fields
-        // ... (your existing saveChanges() logic)
+        // Get the selected course, student, module, and grade from the ComboBoxes and TextField
+        String selectedCourse = courseComboBox.getValue();
+        String selectedStudent = studentComboBox.getValue();
+        String selectedModule = moduleComboBox.getValue();
+        String enteredGrade = grade.getText();
+
+        if (selectedCourse != null && !selectedCourse.isEmpty()
+                && selectedStudent != null && !selectedStudent.isEmpty()
+                && selectedModule != null && !selectedModule.isEmpty()
+                && enteredGrade != null && !enteredGrade.isEmpty()) {
+
+            //System.out.println(enteredGrade); //-------------------------------------------------
+            // Update the Courses.csv file with the new grade
+            updateCoursesCSV(selectedCourse, selectedStudent, selectedModule, enteredGrade);
+
+            // Provide feedback or perform additional actions as needed
+            //System.out.println("Changes saved successfully!");
+        } else {
+            System.out.println("Incomplete data. Please select course, semester, module, and enter grade.");
+        }
     }
+
+    private void updateCoursesCSV(String selectedCourse, String selectedStudent, String selectedModule, String newGrade) {
+        try {
+            Path filePath = Paths.get("src\\main\\resources\\application\\Courses.csv");
+
+            String selectedSemester = semesterComboBox.getValue();
+            int numb = 0;
+
+            List<String> lines = Files.readAllLines(filePath);
+            List<String> updatedLines = new ArrayList<>();
+            
+
+            //System.out.println(moduleIndex); //--------------------------------------------------
+            for (int i = 0; i < lines.size(); i++) {
+                String line = lines.get(i).trim();
+
+                //System.out.println("Line before split: " + line); //-------------------------------
+
+                String[] parts = line.split(",");
+
+                //System.out.println("Number of elements after split: " + parts.length); //----------
+
+
+                //System.out.println(Arrays.toString(parts)); //----------------------------------- Using
+                //System.out.println("part[0}: " +parts[0]);
+                //System.out.println("Course: " + selectedCourse);
+                if (parts.length > 1 && parts.length < 10 && parts[0].equals(selectedCourse) && parts[1].equals(selectedStudent)){
+                    numb +=1;
+                }
+
+                if (parts.length == 10 && parts[0].equals(selectedSemester) && numb == 1 ){
+                    System.out.println(Arrays.toString(parts));
+                    // Update the grade for the selected module
+                    if (selectedModuleIndex != -1 && selectedModuleIndex < parts.length) {
+                        parts[selectedModuleIndex] = newGrade;
+                        updatedLines.add(String.join(",", parts));
+                    }
+                    numb -= 1;
+                    System.out.println(Arrays.toString(parts));
+                } 
+                updatedLines.add(line);
+                
+            } 
+            // Write the modified list back to the file
+            writeLinesToFile(filePath, updatedLines);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private void writeLinesToFile(Path filePath, List<String> lines) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filePath.toString()))) {
+            for (String line : lines) {
+                writer.write(line);
+                writer.newLine();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
 
 }
