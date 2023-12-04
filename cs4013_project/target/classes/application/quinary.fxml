@@ -31,6 +31,7 @@
          <TextField fx:id="grade" promptText="Grade" />
          <ComboBox fx:id="moduleComboBox" promptText="Select Module" onShowing="#updateModulesForSemester"/>
          <Button text="Save" onAction="#saveChanges" />
+         <Button text="Update QCA" onAction="#updateQCA" />
       </VBox>
       
       <!-- Uneditable TextArea on the right -->
