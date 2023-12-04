@@ -19,7 +19,7 @@ public class App extends Application {
     private static Scene scene;
 
     /**
-     * Creates stage and scenes.
+     * Creates javafx stage and scenes.
      */
     @Override
     public void start(Stage stage) throws IOException {
@@ -30,9 +30,9 @@ public class App extends Application {
     }
 
     /**
-     * Allows views to be switched
+     * Allows views to be switched.
      * @param fxml The variable for the desired fxml file.
-     * @throws IOException if I/O error occurs while switching to homepage.
+     * @throws IOException if an I/O error occurs while switching to the desired view.
      */
     static void setRoot(String fxml) throws IOException {
         scene.setRoot(loadFXML(fxml));
@@ -50,8 +50,8 @@ public class App extends Application {
     }
 
     /**
-     * Main method
-     * @param args main method String[]
+     * Main method.
+     * @param args main method String[].
      */
     public static void main(String[] args) {
         launch();

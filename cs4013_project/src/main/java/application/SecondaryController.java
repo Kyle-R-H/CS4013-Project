@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * SecondaryController
+ */
 public class SecondaryController {
 
     @FXML
@@ -19,6 +22,9 @@ public class SecondaryController {
     @FXML
     private PasswordField passwordField;
 
+    /**
+     * Handles student login validation.
+     */
     @FXML
     private void handleLoginButtonAction() {
         String enteredStudentNumber = studentNumberField.getText();
@@ -35,6 +41,12 @@ public class SecondaryController {
         }
     }
 
+    /**
+     * Ensures that the student number correlates to its respective password when logging in.
+     * @param studentNumber The user's student number used to log into the system.
+     * @param password The student's password.
+     * @return true if credentials are valid, otherwise false.
+     */
     public static String studentNumber;
     private boolean validateCredentials(String studentNumber, String password) {
         // Reads data from CSV and validate credentials
@@ -53,14 +65,22 @@ public class SecondaryController {
         }
 
         return false; // Credentials are not valid
-
-
         
     }
+
+    /**
+     * Switches view to the primary view.
+     * @throws IOException if an I/O error occurs while switching to the primary view.
+     */
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }
+
+    /**
+     * Switches view to the quarternary view.
+     * @throws IOException if an I/O error occurs while switching to the quarternary view.
+     */
     @FXML
     private void switchtoQuarternary() {
         try {

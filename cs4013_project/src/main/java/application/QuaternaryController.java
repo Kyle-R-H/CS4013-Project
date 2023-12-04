@@ -1,3 +1,5 @@
+//Student Main Page
+
 package application;
 
 import java.io.BufferedReader;
@@ -11,7 +13,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
 /**
- * @author Kyle Hellstrom, 22343261
+ * QuaternaryController
  */
 public class QuaternaryController {
     // ~~ Files ~~ //
@@ -152,7 +154,7 @@ public class QuaternaryController {
                         System.out.println("Course Code: " + courseCode); 
                         System.out.println("\nStudent ID final: " + studentCSVID); 
                         System.out.println("Student Line final: " + studentLine); 
-                        System.out.println("studentParts final: " + Arrays.toString(studentParts));// check studentParts
+                        System.out.println("studentParts final: " + Arrays.toString(studentParts));
                         return false;
                     }
                 }
@@ -251,7 +253,7 @@ public class QuaternaryController {
                     for (int i = 0; i < 8; i++) {
                         moduleLine = moduleReader.readLine();
                         moduleParts = moduleLine.split(",");
-                        System.out.println(moduleParts);
+                        System.out.println(Arrays.toString(moduleParts));
                         allModuleCodes.add(moduleParts);
                     }
 
@@ -260,7 +262,7 @@ public class QuaternaryController {
                     for (int i = 0; i < 8; i++) {
                         moduleLine = moduleReader.readLine();
                         moduleParts = moduleLine.split(",");
-                        System.out.println(moduleParts);
+                        System.out.println(Arrays.toString(moduleParts));
                         allModuleNames.add(moduleParts);
                     }
 
