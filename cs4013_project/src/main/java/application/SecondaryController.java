@@ -42,12 +42,15 @@ public class SecondaryController {
     }
 
     /**
+     * studentNumber for QuarternaryController for validation.
+     */
+    public static String studentNumber;
+    /**
      * Ensures that the student number correlates to its respective password when logging in.
      * @param studentNumber The user's student number used to log into the system.
      * @param password The student's password.
      * @return true if credentials are valid, otherwise false.
      */
-    public static String studentNumber;
     private boolean validateCredentials(String studentNumber, String password) {
         // Reads data from CSV and validate credentials
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Student.csv")))) {
