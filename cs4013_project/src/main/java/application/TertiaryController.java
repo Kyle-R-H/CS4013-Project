@@ -11,6 +11,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 
+/**
+ * TertiaryController
+ */
 public class TertiaryController {
 
     @FXML
@@ -19,6 +22,9 @@ public class TertiaryController {
     @FXML
     private PasswordField adminPasswordField;
 
+    /**
+     * Handles admin login validation.
+     */
     @FXML
     private void handleLoginButtonAction() {
         String enteredEmail = adminEmailField.getText();
@@ -34,11 +40,20 @@ public class TertiaryController {
             // Add code to display an error message or perform other actions upon failed admin login
         }
     }
+
+    /**
+     * Switches view to the primary view.
+     * @throws IOException if an I/O error occurs while switching to the primary view.
+     */
     @FXML
     private void switchToPrimary() throws IOException {
         App.setRoot("primary");
     }
 
+    /**
+     * Switches view to the quintary view.
+     * @throws IOException if an I/O error occurs while switching to the quintary view.
+     */
     @FXML
     private void switchtoQuinary() {
         try {
@@ -48,6 +63,12 @@ public class TertiaryController {
         }
     }
 
+    /**
+     * Ensures that the email matches the password while logging into the system.
+     * @param email The admin user's login email.
+     * @param password The admin user's login password.
+     * @return true if credentials are valid, otherwise false.
+     */
     private boolean validateAdminCredentials(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new InputStreamReader(getClass().getResourceAsStream("Administrator.csv")))) {
             String line;
