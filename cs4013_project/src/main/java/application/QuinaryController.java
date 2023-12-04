@@ -73,7 +73,7 @@ public class QuinaryController {
 
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence what this does e.gInitializes ArrayLists and retrieves information. <- this is what i have in QuarternaryController
+     *Initializes ArrayLists, loads data form CSV, populates ComboBox's and add a listener to semesterComboBox. 
      */
     @FXML
     private void initialize() {
@@ -99,7 +99,7 @@ public class QuinaryController {
     }
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * When a course is selected this method then populates the student and semester ComboBox from the Courses.csv
      */
     @FXML
     private void updateStudentsForCourse() {
@@ -149,7 +149,7 @@ public class QuinaryController {
     }
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Called in initialization to get data from Course.csv
      */
     private void loadDataFromCoursesCSV() {
         Set<String> coursesSet = new HashSet<>();
@@ -175,7 +175,7 @@ public class QuinaryController {
     }
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does and do similar for other methods
+     * Called later to assist in populating the large uneditable textArea
      * @param selectedCourse The course code.
      * @param selectedSemester The current semester.
      * @return A string of...
@@ -229,7 +229,7 @@ public class QuinaryController {
     
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Takes Value of Semester and populates the module ComboBox with Modules from Modules.csv also fills in large TextArea
      */
     @FXML
     private void updateModulesForSemester() {
@@ -317,7 +317,7 @@ public class QuinaryController {
     }
     
     /**
-     * Saves changes of..  ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Saves the "Grade" textField over the corresponding value in Courses.csv
      */
     @FXML
     private void saveChanges() {
@@ -340,7 +340,7 @@ public class QuinaryController {
     }
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     *Builds the CSV file with the ammedment made by the user in the "Grade textField"
      * @param selectedCourse like the one above
      * @param selectedStudent
      * @param selectedModule
@@ -384,7 +384,7 @@ public class QuinaryController {
     }
     
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Called in the above method to handle the updating/rewriting of the Courses.csv
      * @param filePath same ol story
      * @param lines
      */
@@ -401,7 +401,7 @@ public class QuinaryController {
 //-------------------------------------------------------------Calc from here on------------------------------------------------------------------------------------------------
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Processes the Course.csv file to be ready for QCA Calculation.
      * @param csvFile
      */
     private static void processCSVFile(String csvFile) {
@@ -429,7 +429,7 @@ public class QuinaryController {
     
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Calculates the QCA of every row deemed applicable when processed above.
      * @param values
      * @return
      */
@@ -493,7 +493,7 @@ public class QuinaryController {
 
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Rewrites all QCA's in the Courses.csv file to the newly calculated ones. 
      */
     private static void calculateAndOverwriteAverage() {
         try (BufferedReader br = new BufferedReader(new FileReader("src\\main\\resources\\application\\Courses.csv"))) {
@@ -518,7 +518,7 @@ public class QuinaryController {
     }
     
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * Rounds the QCA for better asthetic in displaying it.
      * @param value
      * @return
      */
@@ -529,7 +529,7 @@ public class QuinaryController {
     }
 
     /**
-     * ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~Explain in a sentence the jist of what this method does
+     * This method is linked to the "Calculate QCA" button it calls the methods required to update the QCA
      */
     @FXML
     private void updateQCA(){
